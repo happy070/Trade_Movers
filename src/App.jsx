@@ -1,8 +1,11 @@
+import React from 'react'
 import './App.css'
+import MyNavbar from './MyComponents/MyNavbar'
 function App() {
   return (
     <>
-     <h2>Hello my name is happy joshi..</h2>
+    <MyNavbar />
+    <h2>Hello my name is happy joshi..</h2>
     </>
   )
 }
