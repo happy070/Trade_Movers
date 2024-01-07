@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import img from "../assets/logo-no-background.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { NavLink } from "react-router-dom";
 function MyNavbar() {
   const MyStyle = {
     backgroundColor: "#9323BA",
@@ -12,7 +13,7 @@ function MyNavbar() {
   return (
     <Navbar expand="lg" style={MyStyle}>
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={NavLink} to="/" href="#home">
           <img
             src={img}
             width="170"
@@ -28,21 +29,47 @@ function MyNavbar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link style={{ color: "white" }} href="#action1">
+            <Nav.Link
+              as={NavLink}
+              to="/LoginPage"
+              style={{ color: "white" }}
+              href="#action1"
+            >
               Login
             </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="#action2">
+            <Nav.Link
+              as={NavLink}
+              to="/SignUpPage"
+              style={{ color: "white" }}
+              href="#action2"
+            >
               SignUp
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/AboutPage"
+              style={{ color: "white" }}
+              href="#action2"
+            >
+              AboutUs
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/ContactUsPage"
+              style={{ color: "white" }}
+              href="#action2"
+            >
+              ContactUs
             </Nav.Link>
             <NavDropdown
               style={{ color: "white" }}
-              title="Click-Me"
+              title="Product Categories"
               id="navbarScrollingDropdown"
             >
-              <NavDropdown.Item href="#action3">
-                24x7 Customer Support
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Advertise</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Smart-Phones</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">TVs</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Laptop</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Kitchenware</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Download App</NavDropdown.Item>
             </NavDropdown>
