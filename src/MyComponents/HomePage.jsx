@@ -1,11 +1,20 @@
 import React from "react";
 import MyNavbar from "./MyNavbar";
+import Base from "./Base";
 
 function HomePage() {
   return (
     <>
       <MyNavbar />
-      <h2>This is from HomePage</h2>
+      <Base
+        title="Happy Electronics"
+        discription="Plug into happiness"
+        ButtonEnabled={true}
+        ButtonText="Subscribe"
+        ButtonType="warning"
+      >
+        <h2>This is Home page</h2>
+      </Base>
     </>
   );
 }
