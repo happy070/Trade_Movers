@@ -8,7 +8,7 @@ function LoginPage() {
       <MyNavbar />
       <Base
         title="Welcome to Happy Electronics"
-        discription="Kindly Login to Explore Our Tech"
+        discription="Kindly Login to Explore Our Services"
         ButtonEnabled={true}
         ButtonText="Subscribe"
         ButtonType="success"

@@ -8,10 +8,12 @@ import SignUpPage from "./MyComponents/SignUpPage";
 import ContactUsPage from "./MyComponents/ContactUsPage";
 import Dashboard from "./MyComponents/Users/Dashboard";
 import Profile from "./MyComponents/Users/Profile";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/AboutPage" element={<AboutPage />}></Route>
