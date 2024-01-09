@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MyNavbar from "./MyNavbar";
 import Base from "./Base";
 import Logo from "../assets/LogoPNG.png";
@@ -13,6 +13,37 @@ import {
 } from "react-bootstrap";
 
 function SignUpPage() {
+  let [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    about: "",
+  });
+  const handleChange = (event, property) => {
+    console.log(event);
+    console.log(property);
+    setData({
+      ...data,
+      [property]: event.target.value,
+    });
+  };
+  const handleReset = () => {
+    setData({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      gender: "",
+      about: "",
+    });
+  };
+  const [errorData, setErrorData] = useState({
+    isError: false,
+    errorData: null,
+  });
+
   return (
     <>
       <MyNavbar />
@@ -51,7 +82,11 @@ function SignUpPage() {
                       <Form.Label>
                         <i>Name</i>
                       </Form.Label>
-                      <Form.Control type="text" placeholder="Enter your Name" />
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter your Name"
+                        onChange={(event) => handleChange(event, "name")}
+                      />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>
@@ -60,11 +95,13 @@ function SignUpPage() {
                       <Form.Control
                         type="email"
                         placeholder="Enter your Email"
+                        onChange={(event) => handleChange(event, "email")}
                       />
                       <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text>
                     </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       <Form.Label>
                         <i>Password</i>
@@ -72,6 +109,19 @@ function SignUpPage() {
                       <Form.Control
                         type="password"
                         placeholder="Enter your password"
+                        onChange={(event) => handleChange(event, "password")}
+                      />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>
+                        <i>Re-Enter Password</i>
+                      </Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Re-Enter your password"
+                        onChange={(event) =>
+                          handleChange(event, "confirmPassword")
+                        }
                       />
                     </Form.Group>
                     <Form.Group>
@@ -80,15 +130,21 @@ function SignUpPage() {
                         inline
                         label="Male"
                         name="gender"
+                        value={"male"}
                         type={"radio"}
                         id={`gender`}
+                        checked={data.gender === "male"}
+                        onChange={(event) => handleChange(event, "gender")}
                       />
                       <Form.Check
                         inline
                         label="Female"
                         name="gender"
+                        value={"female"}
                         type={"radio"}
                         id={`gender`}
+                        checked={data.gender === "female"}
+                        onChange={(event) => handleChange(event, "gender")}
                       />
                     </Form.Group>
                     <Form.Group className="mt-2">
@@ -97,6 +153,7 @@ function SignUpPage() {
                         as="textarea"
                         placeholder="Leave a comment here"
                         style={{ height: "100px" }}
+                        onChange={(event) => handleChange(event, "about")}
                       />
                     </Form.Group>
                     <Form.Group className="mt-2" controlId="formBasicCheckbox">
@@ -107,7 +164,12 @@ function SignUpPage() {
                         Submit
                       </Button>
                       &nbsp;
-                      <Button className="mt-2" variant="danger" type="reset">
+                      <Button
+                        onClick={handleReset}
+                        className="mt-2"
+                        variant="danger"
+                        type="reset"
+                      >
                         Reset
                       </Button>
                     </div>
