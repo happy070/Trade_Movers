@@ -47,6 +47,7 @@ function SignUpPage() {
       registerUser(data)
         .then((userData) => {
           toast.success("User Created Successfully");
+          handleReset();
         })
         .catch((error) => {
           console.log(error);
@@ -68,7 +69,6 @@ function SignUpPage() {
     isError: false,
     errorData: null,
   });
-
   return (
     <>
       <MyNavbar />
