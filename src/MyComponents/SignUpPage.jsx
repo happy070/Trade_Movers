@@ -11,6 +11,8 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
+import { toast } from "react-toastify";
+import { registerUser } from "./Services/user.service";
 
 function SignUpPage() {
   let [data, setData] = useState({
@@ -22,12 +24,35 @@ function SignUpPage() {
     about: "",
   });
   const handleChange = (event, property) => {
-    console.log(event);
-    console.log(property);
     setData({
       ...data,
       [property]: event.target.value,
     });
+  };
+  const submitForm = (event) => {
+    event.preventDefault();
+    console.table(data);
+    if (data.name == undefined || data.name.trim() == "") {
+      toast.error("please Enter Name");
+    }
+    if (data.email == undefined || data.email.trim() == "") {
+      toast.error("Email is Required");
+    }
+    if (data.password == undefined || data.password.trim() == "") {
+      toast.error("Password is Required");
+    }
+    if (data.password != data.confirmPassword) {
+      toast.error("Password didn't matched try again");
+    } else {
+      registerUser(data)
+        .then((userData) => {
+          toast.success("User Created Successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong");
+        });
+    }
   };
   const handleReset = () => {
     setData({
@@ -77,7 +102,7 @@ function SignUpPage() {
                       </i>
                     </div>
                   </div>
-                  <Form>
+                  <Form onSubmit={submitForm}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                       <Form.Label>
                         <i>Name</i>
