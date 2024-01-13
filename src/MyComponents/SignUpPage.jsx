@@ -10,6 +10,7 @@ import {
   Row,
   Form,
   Button,
+  Spinner,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { registerUser } from "./Services/user.service";
@@ -29,6 +30,8 @@ function SignUpPage() {
       [property]: event.target.value,
     });
   };
+  const [loading, setLoading] = useState(false);
+
   const submitForm = (event) => {
     event.preventDefault();
     console.table(data);
@@ -44,6 +47,7 @@ function SignUpPage() {
     if (data.password != data.confirmPassword) {
       toast.error("Password didn't matched try again");
     } else {
+      setLoading(true);
       registerUser(data)
         .then((userData) => {
           toast.success("User Created Successfully");
@@ -52,6 +56,9 @@ function SignUpPage() {
         .catch((error) => {
           console.log(error);
           toast.error("Something went wrong");
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
@@ -186,7 +193,14 @@ function SignUpPage() {
                     </Form.Group>
                     <div>
                       <Button className="mt-2" variant="primary" type="submit">
-                        Submit
+                        <Spinner
+                          animation="border"
+                          size="sm"
+                          className="me-1"
+                          hidden={!loading}
+                        ></Spinner>{" "}
+                        <span hidden={!loading}>Wait</span>
+                        <span hidden={loading}>Submit</span>
                       </Button>
                       &nbsp;
                       <Button
