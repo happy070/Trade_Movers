@@ -14,8 +14,10 @@ import {
 } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { registerUser } from "./Services/user.service";
+import { useNavigate } from "react-router-dom";
 
 function SignUpPage() {
+  const navigate = useNavigate();
   let [data, setData] = useState({
     name: "",
     email: "",
@@ -52,6 +54,7 @@ function SignUpPage() {
         .then((userData) => {
           toast.success("User Created Successfully");
           handleReset();
+          navigate("/LoginPage");
         })
         .catch((error) => {
           console.log(error);
@@ -59,6 +62,7 @@ function SignUpPage() {
         })
         .finally(() => {
           setLoading(false);
+          navigate("/LoginPage");
         });
     }
   };

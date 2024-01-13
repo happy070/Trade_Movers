@@ -93,7 +93,6 @@ function LoginPage() {
                       <div>
                         <FontAwesomeIcon icon={faRocket} className="fa-2x" />
                       </div>
-                      <br />
                       <i>
                         <b>Kindly Login To Your Account</b>
                       </i>
@@ -148,7 +147,7 @@ function LoginPage() {
                   </Form>
                   <Container className="text-center">
                     <p>
-                      Doesn't Have a Account?<a href="/LoginPage">Signup!</a>
+                      Doesn't Have a Account? <a href="/SignUpPage">Signup!</a>
                     </p>
                   </Container>
                 </CardBody>
