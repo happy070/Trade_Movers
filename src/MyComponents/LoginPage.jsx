@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MyNavbar from "./MyNavbar";
 import Base from "./Base";
 import Logo from "../assets/LogoPNG.png";
@@ -16,8 +16,11 @@ import {
 } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { registerUser } from "./Services/user.service";
+import user from "../MyComponents/Context/user.context";
 
 function LoginPage() {
+  const userContext = useContext(user);
+
   let [data, setData] = useState({
     email: "",
     password: "",
@@ -83,6 +86,7 @@ function LoginPage() {
                 }}
               >
                 <CardBody>
+                  {JSON.stringify(userContext)}
                   <div className="text-left">
                     <img
                       src={Logo}

@@ -9,22 +9,25 @@ import ContactUsPage from "./MyComponents/ContactUsPage";
 import Dashboard from "./MyComponents/Users/Dashboard";
 import Profile from "./MyComponents/Users/Profile";
 import { ToastContainer } from "react-toastify";
+import UserProvider from "./MyComponents/Context/user.provider";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <ToastContainer />
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/AboutPage" element={<AboutPage />}></Route>
-          <Route path="/LoginPage" element={<LoginPage />}></Route>
-          <Route path="/SignUpPage" element={<SignUpPage />}></Route>
-          <Route path="/ContactUsPage" element={<ContactUsPage />}></Route>
-          <Route path="/users" element={<Dashboard />}>
-            <Route path="profile" element={<Profile />}></Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <UserProvider>
+        <BrowserRouter>
+          <ToastContainer />
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/AboutPage" element={<AboutPage />}></Route>
+            <Route path="/LoginPage" element={<LoginPage />}></Route>
+            <Route path="/SignUpPage" element={<SignUpPage />}></Route>
+            <Route path="/ContactUsPage" element={<ContactUsPage />}></Route>
+            <Route path="/users" element={<Dashboard />}>
+              <Route path="profile" element={<Profile />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </UserProvider>
     </>
   );
 }
