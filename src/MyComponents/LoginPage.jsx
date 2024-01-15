@@ -15,7 +15,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { registerUser } from "./Services/user.service";
+import { loginUser } from "./Services/user.service";
 import user from "../MyComponents/Context/user.context";
 
 function LoginPage() {
@@ -43,8 +43,9 @@ function LoginPage() {
       toast.error("Password is Required");
     } else {
       setLoading(true);
-      registerUser(data)
-        .then((userData) => {
+      loginUser(data)
+        .then((data) => {
+          console.log(data);
           toast.success("Logged in Successfully");
           handleReset();
         })
