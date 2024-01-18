@@ -5,11 +5,22 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import img from "../assets/logo-no-background.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../MyComponents/Context/user.context";
+import { toast } from "react-toastify";
 function MyNavbar() {
+  const redirect = useNavigate();
+  const userContext = useContext(UserContext);
   const MyStyle = {
     backgroundColor: "#9323BA",
   };
+  function LogOut() {
+    userContext.setIsLogin(false);
+    userContext.setUserData(null);
+    toast.success("LogOut Successfully");
+    redirect("/");
+  }
   return (
     <Navbar expand="lg" style={MyStyle}>
       <Container fluid>
@@ -29,22 +40,46 @@ function MyNavbar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link
-              as={NavLink}
-              to="/LoginPage"
-              style={{ color: "white" }}
-              href="#action1"
-            >
-              Login
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/SignUpPage"
-              style={{ color: "white" }}
-              href="#action2"
-            >
-              SignUp
-            </Nav.Link>
+            {userContext.isLogin ? (
+              <>
+                <Nav.Link
+                  as={NavLink}
+                  to="/LoginPage"
+                  style={{ color: "white" }}
+                  href="#action1"
+                >
+                  {userContext.userData.user?.name}
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/"
+                  style={{ color: "white" }}
+                  href="#action2"
+                  onClick={LogOut}
+                >
+                  LogOut
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link
+                  as={NavLink}
+                  to="/LoginPage"
+                  style={{ color: "white" }}
+                  href="#action1"
+                >
+                  Login
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/SignUpPage"
+                  style={{ color: "white" }}
+                  href="#action2"
+                >
+                  SignUp
+                </Nav.Link>
+              </>
+            )}
             <Nav.Link
               as={NavLink}
               to="/AboutPage"
