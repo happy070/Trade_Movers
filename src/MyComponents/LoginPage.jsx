@@ -17,9 +17,11 @@ import {
 import { toast } from "react-toastify";
 import { loginUser } from "./Services/user.service";
 import user from "../MyComponents/Context/user.context";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const userContext = useContext(user);
+  const redirect = useNavigate();
 
   let [data, setData] = useState({
     email: "",
@@ -44,10 +46,13 @@ function LoginPage() {
     } else {
       setLoading(true);
       loginUser(data)
-        .then((data) => {
-          console.log(data);
+        .then((responseData) => {
+          console.log(responseData);
           toast.success("Logged in Successfully");
           handleReset();
+          userContext.setLogin(true);
+          userContext.setUserData(responseData);
+          redirect("/");
         })
         .catch((error) => {
           console.log(error);

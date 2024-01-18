@@ -3,8 +3,11 @@ import MyNavbar from "./MyNavbar";
 import Base from "./Base";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
+import UserContext from "../MyComponents/Context/user.context";
 import axios from "axios";
+import { useContext } from "react";
 function HomePage() {
+  const userContxt = useContext(UserContext);
   function result() {
     // toast.success("Fetched Users From fake API's", { theme: "dark" });
     axios
@@ -28,8 +31,14 @@ function HomePage() {
         ButtonText="Subscribe"
         ButtonType="warning"
       >
-        <h2>This is Home page</h2>
         <div className="text-center">
+          {/* {JSON.stringify(userContxt)} */}
+          <h2>
+            Login status: {userContxt.isLogin ? "Logged In" : "Not Logged In"}
+          </h2>
+          {userContxt.userData && (
+            <h2>Hello {userContxt.userData.user?.name}! Welcome to the App</h2>
+          )}
           <Button onClick={result}>Enter</Button>
         </div>
       </Base>

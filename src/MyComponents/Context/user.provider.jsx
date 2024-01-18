@@ -5,7 +5,14 @@ const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   return (
-    <user.Provider value={{ userData: userData, isLogin: isLogin }}>
+    <user.Provider
+      value={{
+        userData: userData,
+        setUserData: setUserData,
+        isLogin: isLogin,
+        setLogin: setLogin,
+      }}
+    >
       {children}
     </user.Provider>
   );
