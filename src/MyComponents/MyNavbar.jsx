@@ -16,8 +16,9 @@ function MyNavbar() {
     backgroundColor: "#9323BA",
   };
   function LogOut() {
-    userContext.setIsLogin(false);
-    userContext.setUserData(null);
+    // userContext.setIsLogin(false);
+    // userContext.setUserData(null);
+    userContext.logout();
     toast.success("LogOut Successfully");
     redirect("/");
   }

@@ -50,8 +50,10 @@ function LoginPage() {
           console.log(responseData);
           toast.success("Logged in Successfully");
           handleReset();
-          userContext.setLogin(true);
-          userContext.setUserData(responseData);
+          // userContext.setLogin(true);
+          // userContext.setUserData(responseData);
+          userContext.login(responseData);
+
           redirect("/");
         })
         .catch((error) => {
