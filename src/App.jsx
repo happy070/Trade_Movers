@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
-import HomePage from "./MyComponents/HomePage";
+import HomePage from "./pages/users/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AboutPage from "./MyComponents/AboutPage";
-import LoginPage from "./MyComponents/LoginPage";
-import SignUpPage from "./MyComponents/SignUpPage";
-import ContactUsPage from "./MyComponents/ContactUsPage";
-import Dashboard from "./MyComponents/Users/Dashboard";
+import AboutPage from "./pages/AboutPage";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import Dashboard from "./pages/users/Dashboard";
 import Profile from "./MyComponents/Users/Profile";
 import { ToastContainer } from "react-toastify";
-import UserProvider from "./MyComponents/Context/user.provider";
+import UserProvider from "./Context/user.provider";
+import AboutUser from "../src/MyComponents/Users/AboutUser";
+import Index from "./pages/Index";
 function App() {
   return (
     <>
@@ -17,13 +19,15 @@ function App() {
         <BrowserRouter>
           <ToastContainer />
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/" element={<Index />}></Route>
             <Route path="/AboutPage" element={<AboutPage />}></Route>
             <Route path="/LoginPage" element={<LoginPage />}></Route>
             <Route path="/SignUpPage" element={<SignUpPage />}></Route>
             <Route path="/ContactUsPage" element={<ContactUsPage />}></Route>
             <Route path="/users" element={<Dashboard />}>
-              <Route path="profile" element={<Profile />}></Route>
+              <Route path="profile" element={<Profile />} />
+              <Route path="home" element={<HomePage />} />
+              <Route path="about" element={<AboutUser />} />
             </Route>
           </Routes>
         </BrowserRouter>

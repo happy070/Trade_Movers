@@ -1,5 +1,5 @@
 import React from "react";
-import MyNavbar from "./MyNavbar";
+import MyNavbar from "../MyComponents/MyNavbar";
 
 function ContactUsPage() {
   return (

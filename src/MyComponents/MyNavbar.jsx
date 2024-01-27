@@ -7,7 +7,7 @@ import img from "../assets/logo-no-background.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import UserContext from "../MyComponents/Context/user.context";
+import UserContext from "../Context/user.context";
 import { toast } from "react-toastify";
 function MyNavbar() {
   const redirect = useNavigate();

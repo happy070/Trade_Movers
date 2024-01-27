@@ -2,8 +2,8 @@
 // User Authentication Using localStorage 
 
 // data save into localStorage 
-export const doLoginLocalStorage=(data)=>{
-  localStorage.setItem("userData",JSON.stringify(data));
+export const doLoginLocalStorage=(ResponseData)=>{
+  localStorage.setItem("userData",JSON.stringify(ResponseData));
 }
 
 // data fetch from localStorage 

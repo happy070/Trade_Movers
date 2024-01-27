@@ -5,7 +5,8 @@ import {
   doLogoutFromLocalStorage,
   getDataFromLocalStorage,
   isLoggedIn,
-} from "../../auth/helper.auth";
+} from "../auth/helper.auth";
+
 const UserProvider = ({ children }) => {
   const [isLogin, setLogin] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -15,8 +16,8 @@ const UserProvider = ({ children }) => {
     setUserData(getDataFromLocalStorage());
   }, []);
 
-  const doLogin = (data) => {
-    doLoginLocalStorage(data);
+  const doLogin = (ResponseData) => {
+    doLoginLocalStorage(ResponseData);
     setLogin(true);
     setUserData(getDataFromLocalStorage());
   };

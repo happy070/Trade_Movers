@@ -1,9 +1,9 @@
 import React from "react";
-import MyNavbar from "./MyNavbar";
-import Base from "./Base";
+import MyNavbar from "../../MyComponents/MyNavbar";
+import Base from "../../MyComponents/Base";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
-import UserContext from "../MyComponents/Context/user.context";
+import UserContext from "../../Context/user.context";
 import axios from "axios";
 import { useContext } from "react";
 function HomePage() {

@@ -1,9 +1,7 @@
-import React, { useContext, useState } from "react";
-import MyNavbar from "./MyNavbar";
-import Base from "./Base";
+import React, { useState } from "react";
+import MyNavbar from "../MyComponents/MyNavbar";
+import Base from "../MyComponents/Base";
 import Logo from "../assets/LogoPNG.png";
-import { faRocket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Card,
   CardBody,
@@ -15,17 +13,18 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { loginUser } from "./Services/user.service";
-import user from "../MyComponents/Context/user.context";
+import { registerUser } from "../Services/user.service";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
-  const userContext = useContext(user);
-  const redirect = useNavigate();
-
+function SignUpPage() {
+  const navigate = useNavigate();
   let [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    gender: "",
+    about: "",
   });
   const handleChange = (event, property) => {
     setData({
@@ -38,23 +37,24 @@ function LoginPage() {
   const submitForm = (event) => {
     event.preventDefault();
     console.table(data);
+    if (data.name == undefined || data.name.trim() == "") {
+      toast.error("please Enter Name");
+    }
     if (data.email == undefined || data.email.trim() == "") {
       toast.error("Email is Required");
     }
     if (data.password == undefined || data.password.trim() == "") {
       toast.error("Password is Required");
+    }
+    if (data.password != data.confirmPassword) {
+      toast.error("Password didn't matched try again");
     } else {
       setLoading(true);
-      loginUser(data)
-        .then((responseData) => {
-          console.log(responseData);
-          toast.success("Logged in Successfully");
+      registerUser(data)
+        .then((userData) => {
+          toast.success("User Created Successfully");
           handleReset();
-          // userContext.setLogin(true);
-          // userContext.setUserData(responseData);
-          userContext.login(responseData);
-
-          redirect("/");
+          navigate("/LoginPage");
         })
         .catch((error) => {
           console.log(error);
@@ -62,13 +62,18 @@ function LoginPage() {
         })
         .finally(() => {
           setLoading(false);
+          navigate("/LoginPage");
         });
     }
   };
   const handleReset = () => {
     setData({
+      name: "",
       email: "",
       password: "",
+      confirmPassword: "",
+      gender: "",
+      about: "",
     });
   };
   const [errorData, setErrorData] = useState({
@@ -79,8 +84,8 @@ function LoginPage() {
     <>
       <MyNavbar />
       <Base
-        title="Happy Electronics / LoginUp"
-        description="Kindly Login to Your Account."
+        title="Happy Electronics / SignUp Form"
+        description="Kindly Create an Account by Filling Up The Form Below."
       >
         <Container fluid="sm" className="mt-2">
           <Row>
@@ -94,7 +99,6 @@ function LoginPage() {
                 }}
               >
                 <CardBody>
-                  {JSON.stringify(userContext)}
                   <div className="text-left">
                     <img
                       src={Logo}
@@ -102,15 +106,24 @@ function LoginPage() {
                       style={{ width: "80%", marginLeft: 0 }}
                     />
                     <div className="text-center">
-                      <div>
-                        <FontAwesomeIcon icon={faRocket} className="fa-2x" />
-                      </div>
+                      <i class="fa-solid fa-user-plus fa-2x"></i>
+                      <br />
                       <i>
-                        <b>Kindly Login To Your Account</b>
+                        <b>Kindly Fill Out Form To Register</b>
                       </i>
                     </div>
                   </div>
                   <Form onSubmit={submitForm}>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                      <Form.Label>
+                        <i>Name</i>
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter your Name"
+                        onChange={(event) => handleChange(event, "name")}
+                      />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>
                         <i>Email</i>
@@ -134,6 +147,53 @@ function LoginPage() {
                         placeholder="Enter your password"
                         onChange={(event) => handleChange(event, "password")}
                       />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>
+                        <i>Re-Enter Password</i>
+                      </Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Re-Enter your password"
+                        onChange={(event) =>
+                          handleChange(event, "confirmPassword")
+                        }
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <div>Select Your Gender</div>
+                      <Form.Check
+                        inline
+                        label="Male"
+                        name="gender"
+                        value={"male"}
+                        type={"radio"}
+                        id={`gender`}
+                        checked={data.gender === "male"}
+                        onChange={(event) => handleChange(event, "gender")}
+                      />
+                      <Form.Check
+                        inline
+                        label="Female"
+                        name="gender"
+                        value={"female"}
+                        type={"radio"}
+                        id={`gender`}
+                        checked={data.gender === "female"}
+                        onChange={(event) => handleChange(event, "gender")}
+                      />
+                    </Form.Group>
+                    <Form.Group className="mt-2">
+                      <Form.Label>Write something about yourself</Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        placeholder="Leave a comment here"
+                        style={{ height: "100px" }}
+                        onChange={(event) => handleChange(event, "about")}
+                      />
+                    </Form.Group>
+                    <Form.Group className="mt-2" controlId="formBasicCheckbox">
+                      <Form.Check type="checkbox" label="Agree to T&C" />
                     </Form.Group>
                     <div>
                       <Button className="mt-2" variant="primary" type="submit">
@@ -159,7 +219,7 @@ function LoginPage() {
                   </Form>
                   <Container className="text-center">
                     <p>
-                      Doesn't Have a Account? <a href="/SignUpPage">Signup!</a>
+                      Already Register?<a href="/LoginPage">Login!</a>
                     </p>
                   </Container>
                 </CardBody>
@@ -172,4 +232,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignUpPage;
