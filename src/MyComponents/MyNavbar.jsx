@@ -43,13 +43,35 @@ function MyNavbar() {
           >
             {userContext.isLogin ? (
               <>
+                {userContext.isAdminLogin && (
+                  <>
+                    {" "}
+                    <Nav.Link
+                      as={NavLink}
+                      to="/Admin/home"
+                      style={{ color: "white" }}
+                      href="#action1"
+                    >
+                      Admin-DashBoard
+                    </Nav.Link>{" "}
+                  </>
+                )}
+
                 <Nav.Link
                   as={NavLink}
-                  to="/LoginPage"
+                  to="/users/profile"
                   style={{ color: "white" }}
                   href="#action1"
                 >
                   {userContext.userData.user?.name}
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/Users/orders"
+                  style={{ color: "white" }}
+                  href="#action1"
+                >
+                  Orders
                 </Nav.Link>
                 <Nav.Link
                   as={NavLink}

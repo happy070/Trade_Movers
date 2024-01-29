@@ -106,7 +106,7 @@ function SignUpPage() {
                       style={{ width: "80%", marginLeft: 0 }}
                     />
                     <div className="text-center">
-                      <i class="fa-solid fa-user-plus fa-2x"></i>
+                      <i className="fa-solid fa-user-plus fa-2x"></i>
                       <br />
                       <i>
                         <b>Kindly Fill Out Form To Register</b>

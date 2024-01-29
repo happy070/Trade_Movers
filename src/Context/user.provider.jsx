@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import user from "./user.context";
+import { isAdminUser } from "../auth/helper.auth";
 import {
   doLoginLocalStorage,
   doLogoutFromLocalStorage,
@@ -10,21 +11,25 @@ import {
 const UserProvider = ({ children }) => {
   const [isLogin, setLogin] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [isAdminLogin, setIsAdminLogin] = useState(false);
 
   useEffect(() => {
     setLogin(isLoggedIn());
+    setIsAdminLogin(isAdminUser());
     setUserData(getDataFromLocalStorage());
   }, []);
 
   const doLogin = (ResponseData) => {
     doLoginLocalStorage(ResponseData);
     setLogin(true);
+    setIsAdminLogin(isAdminUser());
     setUserData(getDataFromLocalStorage());
   };
 
   const doLogout = () => {
     doLogoutFromLocalStorage();
     setLogin(false);
+    setIsAdminLogin(isAdminUser());
     setUserData(null);
   };
 
@@ -35,6 +40,7 @@ const UserProvider = ({ children }) => {
         setUserData: setUserData,
         isLogin: isLogin,
         setLogin: setLogin,
+        isAdminLogin: isAdminLogin,
         login: doLogin,
         logout: doLogout,
       }}

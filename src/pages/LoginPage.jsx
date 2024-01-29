@@ -135,7 +135,12 @@ function LoginPage() {
                       />
                     </Form.Group>
                     <div>
-                      <Button className="mt-2" variant="primary" type="submit">
+                      <Button
+                        className="mt-2"
+                        variant="primary"
+                        type="submit"
+                        disabled={loading}
+                      >
                         <Spinner
                           animation="border"
                           size="sm"
