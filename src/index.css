@@ -1,0 +1,30 @@
+.overflow-container {
+  overflow: hidden;
+}
+
+.scroll-container {
+  display: flex;
+  animation: scroll 18s linear infinite;
+}
+
+.scroll-item {
+  height: 200px;
+  width: 300px;
+  border-radius: 25px;
+  margin: 10px;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 767px) {
+  h2 {
+    text-align: center !important;
+    font-size: 16px !important;
+  }
+}

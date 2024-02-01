@@ -3,9 +3,9 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import img from "../assets/logo-no-background.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink, useNavigate } from "react-router-dom";
+import Logo from "../assets/TradeMoversLogo.png";
 import { useContext } from "react";
 import UserContext from "../Context/user.context";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ function MyNavbar() {
   const redirect = useNavigate();
   const userContext = useContext(UserContext);
   const MyStyle = {
-    backgroundColor: "#9323BA",
+    backgroundColor: "white",
   };
   function LogOut() {
     // userContext.setIsLogin(false);
@@ -27,8 +27,8 @@ function MyNavbar() {
       <Container fluid>
         <Navbar.Brand as={NavLink} to="/" href="#home">
           <img
-            src={img}
-            width="170"
+            src={Logo}
+            width="175"
             height="65"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
@@ -49,7 +49,7 @@ function MyNavbar() {
                     <Nav.Link
                       as={NavLink}
                       to="/Admin/home"
-                      style={{ color: "white" }}
+                      style={{ color: "black" }}
                       href="#action1"
                     >
                       Admin-DashBoard
@@ -60,7 +60,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/users/profile"
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   href="#action1"
                 >
                   {userContext.userData.user?.name}
@@ -68,7 +68,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/Users/orders"
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   href="#action1"
                 >
                   Orders
@@ -76,7 +76,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/"
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   href="#action2"
                   onClick={LogOut}
                 >
@@ -88,7 +88,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/LoginPage"
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   href="#action1"
                 >
                   Login
@@ -96,7 +96,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/SignUpPage"
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   href="#action2"
                 >
                   SignUp
@@ -106,7 +106,7 @@ function MyNavbar() {
             <Nav.Link
               as={NavLink}
               to="/AboutPage"
-              style={{ color: "white" }}
+              style={{ color: "black" }}
               href="#action2"
             >
               AboutUs
@@ -114,13 +114,13 @@ function MyNavbar() {
             <Nav.Link
               as={NavLink}
               to="/ContactUsPage"
-              style={{ color: "white" }}
+              style={{ color: "black" }}
               href="#action2"
             >
               ContactUs
             </Nav.Link>
             <NavDropdown
-              style={{ color: "white" }}
+              style={{ color: "black" }}
               title="Product Categories"
               id="navbarScrollingDropdown"
             >
@@ -138,8 +138,9 @@ function MyNavbar() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              style={{ border: "1px solid #000" }}
             />
-            <Button variant="outline-light">Search</Button>
+            <Button variant="primary">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

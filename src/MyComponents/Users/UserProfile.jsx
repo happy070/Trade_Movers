@@ -19,9 +19,9 @@ const UserProfile = ({ user = null }) => {
   return (
     <>
       {user && (
-        <>
+        <Container fluid>
           <Row>
-            <Col sm={{ span: 8, offset: 2 }}>
+            <Col sm={{ span: 6, offset: 3 }}>
               <Card className="shadow m-3" style={{ borderRadius: 25 }}>
                 <CardBody>
                   <div className="text-center">
@@ -34,7 +34,7 @@ const UserProfile = ({ user = null }) => {
                       src={defaultProfile}
                       alt="Image not Found"
                     />
-                    <h2 style={{ color: "#9323BA" }}>{user.name}</h2>
+                    <h2 style={{ color: "#143cde" }}>{user.name}</h2>
                   </div>
                   <Table
                     className="text-center"
@@ -67,7 +67,7 @@ const UserProfile = ({ user = null }) => {
                       </tr>
                     </tbody>
                   </Table>
-                  <Container className="text-center">
+                  <Container className="text-center mt-xs-5">
                     <Button size="lg" className="me-2" variant="success">
                       Update
                     </Button>
@@ -79,7 +79,7 @@ const UserProfile = ({ user = null }) => {
               </Card>
             </Col>
           </Row>
-        </>
+        </Container>
       )}
     </>
   );

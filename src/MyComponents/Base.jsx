@@ -3,16 +3,17 @@ import Footer from "./Footer";
 import { NavLink } from "react-router-dom";
 const Base = ({
   title = "Title Page",
-  discription = "Welcome to the dynamic page",
+  discription = "",
   ButtonEnabled = false,
   ButtonText = "Shop now",
   ButtonType = "primary",
   children,
 }) => {
   const MyStyle = {
-    backgroundColor: "#9323BA",
+    backgroundColor: "#2347d9",
     color: "white",
-    height: "150px",
+    height: "140px",
+    fontFamily: "Sixtyfour, sans-serif",
   };
   return (
     <div>

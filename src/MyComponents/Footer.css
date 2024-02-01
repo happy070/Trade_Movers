@@ -1,0 +1,31 @@
+/* Footer.css */
+
+/* Adjust styles for smaller screens */
+@media (max-width: 767px) {
+  .text-center {
+    text-align: center !important;
+  }
+
+  .text-start {
+    text-align: left !important;
+  }
+
+  .text-end {
+    text-align: right !important;
+  }
+  h5 {
+    font-size: 6px !important;  /* Font size for screens up to 767px (mobile) */
+  }
+  h3 {
+    font-size: 14px !important;  /* Font size for screens up to 767px (mobile) */
+  }
+  .foot{
+    margin-bottom: 25px;
+  }
+  /* Add more custom styles for smaller screens as needed */
+  .links{
+    font-size: 14px !important;
+  }
+}
+
+/* Add any additional custom styling for the footer */

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import MyNavbar from "../MyComponents/MyNavbar";
 import Base from "../MyComponents/Base";
-import Logo from "../assets/LogoPNG.png";
+import Logo from "../assets/TradeMoversLogo.png";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

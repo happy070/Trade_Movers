@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MyNavbar from "../MyComponents/MyNavbar";
 import Base from "../MyComponents/Base";
-import Logo from "../assets/LogoPNG.png";
+import Logo from "../assets/TradeMoversLogo.png";
 import {
   Card,
   CardBody,
