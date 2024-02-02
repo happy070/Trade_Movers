@@ -3,6 +3,7 @@ import UserProfile from "../../MyComponents/Users/UserProfile";
 import MyNavbar from "../../MyComponents/MyNavbar";
 import Base from "../../MyComponents/Base";
 import UserContext from "../../Context/user.context";
+import { Container } from "react-bootstrap";
 
 const Profile = () => {
   const userContext = useContext(UserContext);
@@ -11,21 +12,35 @@ const Profile = () => {
   return (
     <>
       <MyNavbar />
-
-      <Base
-        title="Update Profile"
-        discription="You can edit your profile details"
+      <Container
+        fluid
+        className="d-flex justify-content-center align-items-center text-center"
+        style={{ backgroundColor: "#98b8f5", height: "120px" }}
       >
-        <UserProfile
-          user={{
-            name: userContext.userData.user.name,
-            email: userContext.userData.user.email,
-            about: userContext.userData.user.about,
-            gender: userContext.userData.user.gender,
-            roles: userContext.userData.user.roles,
-          }}
-        />
-      </Base>
+        <div>
+          <h2
+            style={{
+              fontFamily: "Sixtyfour, sans-serif",
+              marginTop: "10px",
+              backgroundColor: "#05215e",
+              color: "white",
+              boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+            }}
+            className="baseName"
+          >
+            Update Details
+          </h2>
+        </div>
+      </Container>
+      <UserProfile
+        user={{
+          name: userContext.userData.user.name,
+          email: userContext.userData.user.email,
+          about: userContext.userData.user.about,
+          gender: userContext.userData.user.gender,
+          roles: userContext.userData.user.roles,
+        }}
+      />
     </>
   );
 };

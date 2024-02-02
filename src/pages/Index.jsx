@@ -14,6 +14,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import "../../src/index.css";
 import CategoryView from "../MyComponents/CategoryView";
 import Footer from "../MyComponents/Footer.jsx";
+import HandGift from "../assets/HandGiftingP.png";
+import LoveGift from "../assets/loveGiftBags.png";
 function Index() {
   return (
     <>
@@ -22,12 +24,34 @@ function Index() {
         <Container
           fluid
           className="d-flex justify-content-center align-items-center text-center"
+          style={{ backgroundColor: "#98b8f5", height: "120px" }}
         >
+          <img
+            src={HandGift}
+            style={{ height: 120, position: "absolute", left: 0, zIndex: 1 }}
+            alt="Left Image"
+          />
           <div>
-            <h2 style={{ fontFamily: "Sixtyfour, sans-serif" }}>
+            <h2
+              style={{
+                fontFamily: "Sixtyfour, sans-serif",
+                marginTop: "25px",
+                backgroundColor: "#05215e",
+                color: "white",
+                boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+              }}
+              className="baseName"
+            >
               Welcome to Trade Movers...
             </h2>
-            <h6 style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h4
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "26px",
+                marginTop: "15px",
+              }}
+              className="subBaseName"
+            >
               Promotional & Corporate Gifting
               <span>
                 <img
@@ -36,8 +60,13 @@ function Index() {
                   alt="image not Found"
                 />
               </span>
-            </h6>
+            </h4>
           </div>
+          <img
+            src={LoveGift}
+            style={{ height: 130, position: "absolute", right: 18, zIndex: 1 }}
+            alt="Right Image"
+          />
         </Container>
         <div className="overflow-auto">
           <div className="d-flex scroll-container">
@@ -162,8 +191,8 @@ function Index() {
               style={{
                 paddingTop: "20px",
                 borderRight: "1px solid #ccc",
-                backgroundColor: "#f8f9fa",
               }}
+              className="shadow p-3 mb-5 bg-white rounded"
             >
               <CategoryView />
             </Col>

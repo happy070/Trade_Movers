@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-
+import "../../src/index.css";
 const CategoryView = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Electronics");
+  const [selectedCategory, setSelectedCategory] = useState("Gadgets");
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -19,13 +19,22 @@ const CategoryView = () => {
   };
   const selectedStyle = {
     ...commonStyle,
-    backgroundColor: "#347aeb",
+    backgroundColor: "#05215e",
     color: "white",
   };
   return (
     <>
-      <h5 className="text-center category">Categories</h5>
-      <Row>
+      <h5
+        className="text-center category"
+        style={{
+          fontFamily: "Sixtyfour, sans-serif",
+          fontSize: "17px",
+          boxShadow: "0 5px 8px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        CATEGORIES
+      </h5>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -49,7 +58,7 @@ const CategoryView = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -77,7 +86,7 @@ const CategoryView = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -105,7 +114,7 @@ const CategoryView = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -135,7 +144,7 @@ const CategoryView = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -165,7 +174,7 @@ const CategoryView = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem

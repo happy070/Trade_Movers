@@ -4,17 +4,21 @@ import whatsapp from "../assets/icons/whatsapp.png";
 import instagram from "../assets/icons/instagram.png";
 import facebook from "../assets/icons/facebook.png";
 import "../MyComponents/Footer.jsx";
-import Logo from "../assets/TradeMoverLogoWhite.png";
+import Logo from "../assets/TradeMoversBlackLogo.png";
+import "../MyComponents/Footer.css";
 const Footer = () => {
   return (
     <>
       <div
         style={{
           border: "1px solid #000",
-          backgroundColor: "#5485f0",
+          backgroundColor: "#98b8f5",
+          marginTop: "5px",
         }}
       >
-        <Container style={{ marginTop: 30, color: "#5485f0" }}>
+        <Container
+          style={{ marginTop: 30, color: "#98b8f5", marginBottom: "0px" }}
+        >
           <Row className="mx-auto">
             <Col
               style={{ borderRadius: "20px" }}
@@ -23,7 +27,7 @@ const Footer = () => {
             >
               <h3
                 style={{
-                  color: "white",
+                  color: "black",
                   fontFamily: "Sixtyfour, sans-serif",
                   fontSize: "15px",
                 }}
@@ -38,7 +42,13 @@ const Footer = () => {
                   className="me-2"
                   aria-label="Search"
                 />
-                <Button style={{ borderRadius: "10px" }} variant="primary">
+                <Button
+                  style={{
+                    borderRadius: "10px",
+                    backgroundColor: "#05215e",
+                    color: "white",
+                  }}
+                >
                   Submit
                 </Button>
               </Form>
@@ -50,10 +60,15 @@ const Footer = () => {
             <Col xs={12} md={4}>
               <div>
                 <div>
-                  <img src={Logo} style={{ height: "100px" }} alt="" />
+                  <img src={Logo} style={{ height: "75px" }} alt="" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      marginTop: "15px",
+                    }}
+                  >
                     Discover the ultimate all-in-one shopping experience with
                     Grocito, We provides a user-friendly platform that enables
                     local sellers to create online stores and sell products to
@@ -67,9 +82,11 @@ const Footer = () => {
                 <div style={{ marginTop: 60 }}>
                   <h3
                     style={{
-                      color: "white",
+                      color: "black",
                       fontFamily: "Sixtyfour, sans-serif",
                       fontSize: "20px",
+                      marginTop: "-28px",
+                      marginBottom: "38px",
                     }}
                   >
                     Quick Links
@@ -88,20 +105,26 @@ const Footer = () => {
                 <div style={{ marginTop: 60 }}>
                   <h3
                     style={{
-                      color: "white",
+                      color: "black",
                       fontFamily: "Sixtyfour, sans-serif",
                       fontSize: "20px",
+                      marginTop: "-28px",
+                      marginBottom: "38px",
                     }}
                   >
                     Contact Us
                   </h3>
                 </div>
                 <div style={{ fontFamily: "Poppins, sans-serif" }}>
-                  <img style={{ height: 30 }} src={whatsapp} alt="" />
+                  <img
+                    style={{ height: 30, marginBottom: 15 }}
+                    src={whatsapp}
+                    alt=""
+                  />
                   <span style={{ marginLeft: 5 }}>Whatsapp</span>
                   <br></br>
                   <img
-                    style={{ height: 30, marginTop: 10 }}
+                    style={{ height: 30, marginBottom: 10 }}
                     src={instagram}
                     alt=""
                   />
@@ -120,7 +143,12 @@ const Footer = () => {
           </Row>
         </Container>
       </div>
-      <div style={{ backgroundColor: "#05215e", height: "40px" }}>
+      <div
+        style={{
+          backgroundColor: "#05215e",
+          height: "40px",
+        }}
+      >
         <Container>
           <Row>
             <Col xs={6} md={6} className="text-start">
@@ -128,11 +156,11 @@ const Footer = () => {
                 style={{
                   color: "white",
                   fontFamily: "'Sixtyfour', sans-serif",
-                  fontSize: "15px",
+                  fontSize: "17px",
                 }}
-                className="mt-2"
+                className="mt-2 FooterTerms"
               >
-                2024 COPYRIGHT : GROCITO
+                2024 COPYRIGHT : TRADE-MOVERS
               </h5>
             </Col>
             <Col xs={6} md={6} className="text-end">
@@ -140,9 +168,9 @@ const Footer = () => {
                 style={{
                   color: "white",
                   fontFamily: "'Sixtyfour', sans-serif",
-                  fontSize: "15px",
+                  fontSize: "17px",
                 }}
-                className="mt-2"
+                className="mt-2 FooterTerms"
               >
                 Terms|Privacy|Cookies
               </h5>

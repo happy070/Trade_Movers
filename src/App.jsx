@@ -16,6 +16,9 @@ import AdminDashboard from "./MyComponents/Admin/AdminDashboard";
 import AdminHome from "./MyComponents/Admin/AdminHome";
 import AddProduct from "./MyComponents/Admin/AddProduct";
 import Profile from "./pages/users/Profile";
+import ViewProduct from "./MyComponents/Admin/viewProduct";
+import ViewCategory from "./MyComponents/Admin/ViewCategory";
+import AddCategory from "./MyComponents/Admin/AddCategory";
 function App() {
   return (
     <>
@@ -36,9 +39,13 @@ function App() {
               <Route path="about" element={<AboutUser />} />
             </Route>
 
-            <Route path="/Admin" element={<AdminDashboard />}>
-              <Route path="home" element={<AdminHome />} />
+            <Route path="/Admin" element={<AdminHome />}>
+              <Route path="home" element={<AdminDashboard />} />
               <Route path="add-product" element={<AddProduct />} />
+              <Route path="view-product" element={<ViewProduct />} />
+              <Route path="add-category" element={<AddCategory />} />
+              <Route path="view-category" element={<ViewCategory />} />
+              <Route path="orders" element={<Orders />} />
             </Route>
           </Routes>
         </BrowserRouter>

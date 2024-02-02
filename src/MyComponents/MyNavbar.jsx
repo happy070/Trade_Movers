@@ -5,15 +5,16 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/TradeMoversLogo.png";
+import Logo from "../assets/TradeMoversBlackLogo.png";
 import { useContext } from "react";
 import UserContext from "../Context/user.context";
 import { toast } from "react-toastify";
+
 function MyNavbar() {
   const redirect = useNavigate();
   const userContext = useContext(UserContext);
   const MyStyle = {
-    backgroundColor: "white",
+    backgroundColor: "#f2f5f7",
   };
   function LogOut() {
     // userContext.setIsLogin(false);
@@ -28,9 +29,10 @@ function MyNavbar() {
         <Navbar.Brand as={NavLink} to="/" href="#home">
           <img
             src={Logo}
-            width="175"
-            height="65"
+            width="220"
+            height="60"
             className="d-inline-block align-top"
+            style={{ marginLeft: 20 }}
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
@@ -140,7 +142,9 @@ function MyNavbar() {
               aria-label="Search"
               style={{ border: "1px solid #000" }}
             />
-            <Button variant="primary">Search</Button>
+            <Button style={{ backgroundColor: "#05215e", color: "white" }}>
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
