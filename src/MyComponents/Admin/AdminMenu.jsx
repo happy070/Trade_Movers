@@ -154,9 +154,10 @@ const AdminMenu = () => {
         </Col>
       </Row>
       <Row style={{ backgroundColor: "#f2f5f7" }}>
-        <Col xs={6} md={12}>
+        <Col xs={12} md={12}>
           <ListGroup>
             <ListGroupItem
+              className="text-center"
               onClick={() => handleCategoryClick("Logout")}
               style={
                 selectedCategory === "Logout" ? selectedStyle : commonStyle

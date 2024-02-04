@@ -27,6 +27,8 @@ function SignUpPage() {
     about: "",
   });
   const handleChange = (event, property) => {
+    console.log(event.target.value);
+    console.log(property);
     setData({
       ...data,
       [property]: event.target.value,

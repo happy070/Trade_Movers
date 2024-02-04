@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import UserProfile from "../../MyComponents/Users/UserProfile";
 import MyNavbar from "../../MyComponents/MyNavbar";
-import Base from "../../MyComponents/Base";
 import UserContext from "../../Context/user.context";
 import { Container } from "react-bootstrap";
+import Footer from "../../MyComponents/Footer";
 
 const Profile = () => {
   const userContext = useContext(UserContext);
@@ -41,6 +41,7 @@ const Profile = () => {
           roles: userContext.userData.user.roles,
         }}
       />
+      <Footer />
     </>
   );
 };
