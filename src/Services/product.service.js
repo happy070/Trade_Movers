@@ -20,3 +20,17 @@ export const addProductImage = (file, productId) => {
     .post(`/products/image/${productId}`, formData)
     .then((response) => response.data);
 };
+
+// getting all product
+export const getAllProducts = (
+  pageNumber = 0,
+  pageSize = 10,
+  sortBy = "addedDate",
+  sortDir = "asc"
+) => {
+  return publicAxios
+    .get(
+      `/products?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
+    )
+    .then((response) => response.data);
+};

@@ -31,7 +31,7 @@ const AdminHome = () => {
       <Container style={{ marginTop: "30px" }}>
         <Row>
           <Col
-            md={3}
+            md={2}
             style={{
               paddingTop: "20px",
               borderRight: "1px solid #ccc",
@@ -40,7 +40,7 @@ const AdminHome = () => {
           >
             <AdminMenu />
           </Col>
-          <Col md={9}>
+          <Col md={10}>
             <Outlet />
           </Col>
         </Row>
