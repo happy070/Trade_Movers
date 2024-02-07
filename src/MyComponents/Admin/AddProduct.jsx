@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Button,
   Card,
@@ -20,9 +20,12 @@ import {
   createProductInCategory,
 } from "../../Services/product.service";
 import { getCategories } from "../../Services/category.service";
+import { Editor } from "@tinymce/tinymce-react";
 const AddProduct = () => {
   const [categories, setCategories] = useState(undefined);
   const [selectedCategoryId, setSelectedCategoryId] = useState("none");
+
+  const editorRef = useRef();
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -150,7 +153,7 @@ const AddProduct = () => {
         <div>
           <Card>
             <CardBody>
-              {/* {JSON.stringify(product.image)} */}
+              {/* {JSON.stringify(product.description)} */}
               <Form onSubmit={HandleSubmit}>
                 <FormGroup>
                   <FormLabel>
@@ -166,11 +169,46 @@ const AddProduct = () => {
                   <FormLabel>
                     <i>Product Description</i>
                   </FormLabel>
-                  <FormControl
-                    as={"textarea"}
-                    placeholder="Enter Product Detail"
-                    rows={6}
-                    onChange={(event) => handleChange(event, "description")}
+                  <Editor
+                    apiKey="k8ipw6twc8rl8ys8utvczi1nx4jov23k7plqrcj38hv3v1f7"
+                    onInit={(evt, editor) => (editorRef.current = editor)}
+                    init={{
+                      height: 320,
+                      menubar: true,
+                      plugins: [
+                        "advlist",
+                        "autolink",
+                        "lists",
+                        "link",
+                        "image",
+                        "charmap",
+                        "preview",
+                        "anchor",
+                        "searchreplace",
+                        "visualblocks",
+                        "code",
+                        "fullscreen",
+                        "insertdatetime",
+                        "media",
+                        "table",
+                        "code",
+                        "help",
+                        "wordcount",
+                      ],
+                      toolbar:
+                        "undo redo | blocks | " +
+                        "bold italic forecolor | alignleft aligncenter " +
+                        "alignright alignjustify | bullist numlist outdent indent | " +
+                        "removeformat | help",
+                      content_style:
+                        "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                    }}
+                    onEditorChange={() =>
+                      setProduct({
+                        ...product,
+                        description: editorRef.current.getContent(),
+                      })
+                    }
                   />
                 </FormGroup>
                 <FormGroup className="mt-2">
