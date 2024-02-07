@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
   CardBody,
   Col,
+  Container,
   Form,
   FormCheck,
   FormControl,
   FormGroup,
   FormLabel,
+  InputGroup,
   Row,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-
+import {
+  AddProductToDB,
+  addProductImage,
+  createProductInCategory,
+} from "../../Services/product.service";
+import { getCategories } from "../../Services/category.service";
 const AddProduct = () => {
+  const [categories, setCategories] = useState(undefined);
+  const [selectedCategoryId, setSelectedCategoryId] = useState("none");
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -40,8 +49,19 @@ const AddProduct = () => {
     }
   };
 
+  useEffect(() => {
+    getCategories(0, 1000)
+      .then((data) => {
+        console.log(data);
+        setCategories(data);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("error in loading categories");
+      });
+  }, []);
+
   const handleFileChange = (event) => {
-    console.log(event.target.files[0]);
     if (
       event.target.files[0].type === "image/png" ||
       event.target.files[0].type == "image/jpeg"
@@ -54,16 +74,63 @@ const AddProduct = () => {
           imagePreview: r.target.result,
           image: event.target.files[0],
         });
-        console.log(r.target.result);
       };
-
       reader.readAsDataURL(event.target.files[0]);
     } else {
       toast.error("Invalid File !!");
-      image.file = null;
+      setProduct({
+        ...product,
+        imagePreview: undefined,
+        image: undefined,
+      });
     }
   };
+  const HandleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedCategoryId === "none") {
+      AddProductToDB(product)
+        .then((responseData) => {
+          console.log(responseData);
+          // APi call
+          addProductImage(product.image, responseData.productId)
+            .then((data1) => {
+              console.log(data1);
+              toast.success("Image Uploaded");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
 
+          toast.success("Data Sent Successfully");
+          Reset();
+        })
+        .catch((error) => {
+          console.error("Something went Wrong");
+          console.log(error);
+        });
+    } else {
+      createProductInCategory(product, selectedCategoryId)
+        .then((responseData) => {
+          console.log(responseData);
+          // APi call
+          addProductImage(product.image, responseData.productId)
+            .then((data1) => {
+              console.log(data1);
+              toast.success("Image Uploaded");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+
+          toast.success("Data Sent Successfully");
+          Reset();
+        })
+        .catch((error) => {
+          console.error("Something went Wrong");
+          console.log(error);
+        });
+    }
+  };
   const Reset = () => {
     setProduct({
       title: "",
@@ -83,8 +150,8 @@ const AddProduct = () => {
         <div>
           <Card>
             <CardBody>
-              {JSON.stringify(product)}
-              <Form>
+              {/* {JSON.stringify(product.image)} */}
+              <Form onSubmit={HandleSubmit}>
                 <FormGroup>
                   <FormLabel>
                     <i>Product Title</i>
@@ -136,6 +203,27 @@ const AddProduct = () => {
                     </Col>
                   </Row>
                 </FormGroup>
+                <Form.Group className="mt-3">
+                  <Form.Label>Select Category</Form.Label>
+                  <Form.Select
+                    onChange={(event) =>
+                      setSelectedCategoryId(event.target.value)
+                    }
+                  >
+                    <option value="none">None</option>
+                    {categories ? (
+                      <>
+                        {categories.content.map((cat) => (
+                          <option key={cat.categoryId} value={cat.categoryId}>
+                            {cat.title}
+                          </option>
+                        ))}
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </Form.Select>
+                </Form.Group>
                 <FormGroup className="mt-2">
                   <FormLabel>
                     <i>Product Quantity</i>
@@ -165,14 +253,40 @@ const AddProduct = () => {
                   </Col>
                 </Row>
                 <FormGroup>
+                  <Container className="text-center">
+                    <p className="text-muted mt-3">Image Preview</p>
+                    <img
+                      style={{ maxHeight: "250px" }}
+                      className="img-fluid"
+                      src={product.imagePreview}
+                      alt=""
+                    />
+                  </Container>
                   <FormLabel>Select Product Image</FormLabel>
-                  <FormControl
-                    type="File"
-                    onChange={(event) => handleFileChange(event)}
-                  />
+                  <InputGroup>
+                    <FormControl
+                      type="File"
+                      onChange={(event) => handleFileChange(event)}
+                    />
+                    <Button
+                      onClick={() => {
+                        setProduct({
+                          ...product,
+                          image: null,
+                          imagePreview: undefined,
+                        });
+                      }}
+                      variant="secondary"
+                    >
+                      clear
+                    </Button>
+                  </InputGroup>
+                  <FormLabel className="text-muted">
+                    Only jpg/png files are supported
+                  </FormLabel>
                 </FormGroup>
                 <div className="mt-2 text-center">
-                  <Button className="me-2" variant="success">
+                  <Button type="submit" className="me-2" variant="success">
                     Add Product
                   </Button>
                   <Button variant="danger" onClick={Reset} type="reset">

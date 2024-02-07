@@ -18,3 +18,9 @@ export const DeleteCategory = (categoryId) => {
     .delete(`/categories/${categoryId}`)
     .then((response) => response.data);
 };
+//get all categories
+export const getCategories = (currentPage = 0, pageSize = 10) => {
+  return publicAxios
+    .get(`/categories?pageNumber=${currentPage}&&pageSize=${pageSize}`)
+    .then((response) => response.data);
+};
