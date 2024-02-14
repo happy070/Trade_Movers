@@ -16,9 +16,10 @@ import AdminDashboard from "./MyComponents/Admin/AdminDashboard";
 import AdminHome from "./MyComponents/Admin/AdminHome";
 import AddProduct from "./MyComponents/Admin/AddProduct";
 import Profile from "./pages/users/Profile";
-import ViewProduct from "./MyComponents/Admin/viewProduct";
+
 import ViewCategory from "./MyComponents/Admin/ViewCategory";
 import AddCategory from "./MyComponents/Admin/AddCategory";
+import ViewProduct from "./MyComponents/Admin/ViewProduct";
 function App() {
   return (
     <>

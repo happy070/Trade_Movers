@@ -16,6 +16,13 @@ import CategoryView from "../MyComponents/CategoryView";
 import Footer from "../MyComponents/Footer.jsx";
 import HandGift from "../assets/HandGiftingP.png";
 import LoveGift from "../assets/loveGiftBags.png";
+import OurAchivements from "../assets/Clients/achivements.jpg";
+import OurCustomer1 from "../assets/Clients/ourcustomer1.png";
+import OurCustomer2 from "../assets/Clients/ourcustomer2.png";
+import OurCustomer3 from "../assets/Clients/ourcustomer3.png";
+import OurCustomer4 from "../assets/Clients/ourcustomer4.png";
+import OurCustomer5 from "../assets/Clients/ourcustomer5.png";
+import OurCustomer6 from "../assets/Clients/ourcustomer6.png";
 function Index() {
   return (
     <>
@@ -201,6 +208,81 @@ function Index() {
             </Col>
           </Row>
         </Container>
+        <section>
+          <div
+            className="d-flex justify-content-center align-items-center text-center"
+            style={{ backgroundColor: "#98b8f5", height: "100px" }}
+          >
+            <h2
+              style={{
+                fontFamily: "Sixtyfour, sans-serif",
+                marginTop: "25px",
+                backgroundColor: "#05215e",
+                color: "white",
+                boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+              }}
+              className="baseName"
+            >
+              Clients Who Trust Us...
+            </h2>
+          </div>
+          <div className="overflow-auto">
+            <div className="d-flex scroll-container">
+              <img
+                style={{
+                  width: "100%",
+
+                  margin: 10,
+                }}
+                src={OurCustomer1}
+              />
+              <img
+                style={{
+                  width: "100%",
+                  margin: 10,
+                }}
+                src={OurCustomer2}
+              />
+              <img
+                style={{
+                  width: "100%",
+                  margin: 10,
+                }}
+                src={OurCustomer3}
+              />
+              <img
+                style={{
+                  width: "100%",
+                  margin: 10,
+                }}
+                src={OurCustomer4}
+              />
+              <img
+                style={{
+                  width: "100%",
+                  margin: 10,
+                }}
+                src={OurCustomer5}
+              />
+              <img
+                style={{
+                  width: "100%",
+                  margin: 10,
+                }}
+                src={OurCustomer6}
+              />
+            </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            <img
+              src={OurAchivements}
+              alt="img not Found"
+              style={{ width: "100%" }}
+            />
+          </div>
+        </section>
         <Footer />
       </div>
     </>

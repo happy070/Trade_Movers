@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import whatsapp from "../assets/icons/whatsapp.png";
 import instagram from "../assets/icons/instagram.png";
 import facebook from "../assets/icons/facebook.png";
+import Linkdin from "../assets/icons/Linkdin.png";
 import "../MyComponents/Footer.jsx";
 import Logo from "../assets/TradeMoversBlackLogo.png";
 import "../MyComponents/Footer.css";
@@ -57,9 +58,9 @@ const Footer = () => {
         </Container>
         <Container style={{ marginTop: 30 }}>
           <Row className="text-center">
-            <Col xs={12} md={4}>
+            <Col xs={12} md={6}>
               <div>
-                <div>
+                <div style={{ marginRight: 120 }}>
                   <img src={Logo} style={{ height: "75px" }} alt="" />
                 </div>
                 <div>
@@ -67,17 +68,24 @@ const Footer = () => {
                     style={{
                       fontFamily: "Poppins, sans-serif",
                       marginTop: "15px",
+                      textAlign: "left",
                     }}
                   >
-                    Discover the ultimate all-in-one shopping experience with
-                    Grocito, We provides a user-friendly platform that enables
-                    local sellers to create online stores and sell products to
-                    customers in their area more efficiently.
+                    Trade Movers Started its journey in the year 2011, Since
+                    then We had been redefining merchandising & promotional
+                    gifting trends to strengthen our customer businesses, by
+                    offering innovative, Quality & reasonably priced products .
+                    Our thought-process and commitments made us a prominent
+                    corporate gifts supplier in industry, Our dedicated team,
+                    who understand the ever-changing needs of clients and come
+                    out with solutions true to their satisfaction. Trade movers
+                    had been serving customers across various business sectors &
+                    cities.
                   </p>
                 </div>
               </div>
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={3}>
               <div>
                 <div style={{ marginTop: 60 }}>
                   <h3
@@ -92,7 +100,11 @@ const Footer = () => {
                     Quick Links
                   </h3>
                 </div>
-                <div style={{ fontFamily: "Poppins, sans-serif" }}>
+                <div
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
                   <h5 className="links">ContactUs</h5>
                   <h5 className="links">Privacy Policy</h5>
                   <h5 className="links">Cancellation Policy</h5>
@@ -100,7 +112,7 @@ const Footer = () => {
                 </div>
               </div>
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={3}>
               <div className="foot">
                 <div style={{ marginTop: 60 }}>
                   <h3
@@ -116,27 +128,58 @@ const Footer = () => {
                   </h3>
                 </div>
                 <div style={{ fontFamily: "Poppins, sans-serif" }}>
-                  <img
-                    style={{ height: 30, marginBottom: 15 }}
-                    src={whatsapp}
-                    alt=""
-                  />
-                  <span style={{ marginLeft: 5 }}>Whatsapp</span>
-                  <br></br>
-                  <img
-                    style={{ height: 30, marginBottom: 10 }}
-                    src={instagram}
-                    alt=""
-                  />
-                  <span style={{ marginLeft: 5 }}>Instagram</span>
-                  <br></br>
-                  <img
-                    style={{ height: 30, marginTop: 10 }}
-                    src={facebook}
-                    alt=""
-                  />
-                  <span style={{ marginLeft: 5 }}>Facebook</span>
-                  <br></br>
+                  <a
+                    href="https://wa.me/9324483088"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <img
+                      style={{ height: 30, marginTop: 12 }}
+                      src={whatsapp}
+                      alt="WhatsApp"
+                    />
+                    <span style={{ marginLeft: 5 }}>Whatsapp</span>
+                  </a>
+                  <br />
+                  <a
+                    href="https://www.instagram.com/trademoverss/"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <img
+                      style={{ height: 30, marginTop: 10 }}
+                      src={instagram}
+                      alt="Instagram"
+                    />
+                    <span style={{ marginLeft: 5 }}>Instagram</span>
+                  </a>
+                  <br />
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100057406605014"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <img
+                      style={{ height: 30, marginTop: 10 }}
+                      src={facebook}
+                      alt="Facebook"
+                    />
+                    <span style={{ marginLeft: 5 }}>Facebook</span>
+                  </a>
+                  <br />
+                  <a
+                    href="https://www.linkedin.com/in/trade-movers-3b376527/"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      marginRight: 28,
+                    }}
+                  >
+                    <img
+                      style={{ height: 30, marginTop: 10 }}
+                      src={Linkdin}
+                      alt="Linkdin"
+                    />
+                    <span style={{ marginLeft: 4 }}>Linkdin</span>
+                  </a>
+                  <br />
                 </div>
               </div>
             </Col>
@@ -176,6 +219,11 @@ const Footer = () => {
               </h5>
             </Col>
           </Row>
+          <div>
+            <a href="https://wa.me/9324483088" class="whatsapp-float">
+              <img src={whatsapp} alt="WhatsApp" />
+            </a>
+          </div>
         </Container>
       </div>
     </>

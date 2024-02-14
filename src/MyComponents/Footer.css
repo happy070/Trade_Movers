@@ -32,3 +32,14 @@
 }
 
 /* Add any additional custom styling for the footer */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-float img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+}

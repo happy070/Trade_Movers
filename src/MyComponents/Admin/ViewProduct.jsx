@@ -10,18 +10,31 @@ import {
   Pagination,
   Row,
   Table,
+  Modal,
+  Button,
+  InputGroup,
 } from "react-bootstrap";
 import { getAllProducts } from "../../Services/product.service";
 import SingleProductCard from "./SingleProductCard";
+import { getProductImage } from "../../Services/helper.service";
+import DefaultImage from "../../assets/default.jpg";
 const ViewProduct = () => {
   const [product, setProduct] = useState(undefined);
+  const [show, setShow] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(undefined);
+  const closeProductViewModal = () => setShow(false);
+  const openProductViewModal = (product) => {
+    setCurrentProduct(product);
+    console.log(product);
+    setShow(true);
+  };
   useEffect(() => {
-    getProducts();
+    getProducts(1, 5, "addedDate", "desc");
   }, []);
 
   const getProducts = (
-    pageNumber = 0,
-    pageSize = 10,
+    pageNumber = 1,
+    pageSize = 5,
     sortBy = "addedDate",
     sortDir = "asc"
   ) => {
@@ -36,19 +49,128 @@ const ViewProduct = () => {
         console.error(error);
       });
   };
+  const updateProductList = (productId) => {
+    const newArray = product.content.filter((p) => p.productId != productId);
+    setProduct({
+      ...product,
+      content: newArray,
+    });
+  };
+  const productViewModal = () => {
+    return (
+      currentProduct && (
+        <>
+          <Modal show={show} onHide={closeProductViewModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>{currentProduct.title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Container className="text-center">
+                <img
+                  style={{ height: "300px", width: "300px" }}
+                  src={
+                    currentProduct.productImageName
+                      ? getProductImage(currentProduct.productId)
+                      : DefaultImage
+                  }
+                  alt="img not Found"
+                />
+              </Container>
+              <Table striped bordered responsive className="text-center">
+                <thead>
+                  <tr>
+                    <th>Info</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
 
-  const productview = () => {
+                <tbody>
+                  <tr>
+                    <td>Product Id</td>
+                    <td className="fw-bold">{currentProduct.productId}</td>
+                  </tr>
+                  <tr>
+                    <td>Quantity</td>
+                    <td className="fw-bold">{currentProduct.quantity}</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td className="fw-bold"> ₹{currentProduct.price} </td>
+                  </tr>
+                  <tr>
+                    <td>Discounted Price</td>
+                    <td className="fw-bold">
+                      {" "}
+                      ₹{currentProduct.discountedPrice}
+                    </td>
+                  </tr>
+                  <tr className={currentProduct.live ? "" : "table-danger"}>
+                    <td>Live</td>
+                    <td className="fw-bold">
+                      {currentProduct.live ? "True" : "False"}
+                    </td>
+                  </tr>
+                  <tr className={currentProduct.stock ? "" : "table-danger"}>
+                    <td>Stock</td>
+                    <td className="fw-bold">
+                      {currentProduct.stock ? "In Stock" : "Not in Stock"}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Category</td>
+                    <td className="fw-bold">
+                      {currentProduct.category?.title}
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              <div
+                p-3
+                border
+                border-1
+                dangerouslySetInnerHTML={{
+                  __html: currentProduct.description,
+                }}
+              ></div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={closeProductViewModal}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={closeProductViewModal}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
+      )
+    );
+  };
+  const productview = (pageSize) => {
     return (
       <Card>
         <CardBody>
           <h4 className=" text-center mt-3">View Product</h4>
           <FormGroup>
             <FormLabel>Search Product</FormLabel>
-            <FormControl
-              type="text"
-              className="mb-3"
-              placeholder="search here"
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                className="mb-3"
+                placeholder="search here"
+              />
+              <Button
+                style={{
+                  borderRadius: "10px",
+                  backgroundColor: "#05215e",
+                  color: "white",
+                  width: 75,
+                  height: 35,
+                }}
+              >
+                Submit
+              </Button>
+            </InputGroup>
           </FormGroup>
           <Table
             className="text-center"
@@ -78,17 +200,35 @@ const ViewProduct = () => {
                   key={index}
                   product={product}
                   index={index}
+                  updateProductList={updateProductList}
+                  openProductViewModal={openProductViewModal}
                 />
               ))}
             </tbody>
           </Table>
           <Container className="d-flex justify-content-center">
             <Pagination>
-              <Pagination.Item>1</Pagination.Item>
-              <Pagination.Item>2</Pagination.Item>
-              <Pagination.Item>3</Pagination.Item>
-              <Pagination.Item>4</Pagination.Item>
-              <Pagination.Item>5</Pagination.Item>
+              {
+                // [0,1,2,3,4]
+                [...Array(product.totalPages)]
+                  .map((ob, i) => i)
+                  .map((item) => {
+                    return product.pageNumber == item ? (
+                      <Pagination.Item active key={item}>
+                        {item + 1}
+                      </Pagination.Item>
+                    ) : (
+                      <Pagination.Item
+                        onClick={(event) => {
+                          getProducts(item, pageSize, "addedDate", "desc");
+                        }}
+                        key={item}
+                      >
+                        {item + 1}
+                      </Pagination.Item>
+                    );
+                  })
+              }
             </Pagination>
           </Container>
         </CardBody>
@@ -111,6 +251,7 @@ const ViewProduct = () => {
           </Col>
         </Row>
       </Container>
+      {productViewModal()}
     </div>
   );
 };
