@@ -218,7 +218,7 @@ const AddProduct = () => {
                         <i>Price</i>
                       </FormLabel>
                       <FormControl
-                        type="text"
+                        type="Number"
                         placeholder="Enter Price"
                         onChange={(event) => handleChange(event, "price")}
                       />
@@ -228,14 +228,17 @@ const AddProduct = () => {
                         <i>Discounted Price</i>
                       </FormLabel>
                       <FormControl
-                        type="text"
+                        type="Number"
                         placeholder="Enter Discounted Price"
                         onChange={(event) => {
+                          handleChange(event, "discountedPrice");
+                          console.log(event.target.value > product.price);
                           if (event.target.value > product.price) {
+                            console.log(product.price);
+                            console.log(event.target.value);
                             toast.error("Enter Correct value");
                             return;
                           }
-                          handleChange(event, "discountedPrice");
                         }}
                       />
                     </Col>

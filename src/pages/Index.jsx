@@ -10,7 +10,18 @@ import KitchenItems from "../assets/Carousels/Kitchen.jpg";
 import OfficeEssentail from "../assets/Carousels/OfficeEssentials.jpg";
 import Onboarding from "../assets/Carousels/Onboarding.jpg";
 import giftbox from "../assets/icons/gift.png";
-import { Col, Container, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  Col,
+  Container,
+  FormControl,
+  FormGroup,
+  Row,
+  Form,
+} from "react-bootstrap";
 import "../../src/index.css";
 import CategoryView from "../MyComponents/CategoryView";
 import Footer from "../MyComponents/Footer.jsx";
@@ -23,9 +34,30 @@ import OurCustomer3 from "../assets/Clients/ourcustomer3.png";
 import OurCustomer4 from "../assets/Clients/ourcustomer4.png";
 import OurCustomer5 from "../assets/Clients/ourcustomer5.png";
 import OurCustomer6 from "../assets/Clients/ourcustomer6.png";
+import { useState } from "react";
+
 function Index() {
+  const [qEForm, setQEForm] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+  });
+  const handleChange = (event, property) => {
+    setQEForm({
+      ...qEForm,
+      [property]: event.target.value,
+    });
+  };
+  const handleReset = () => {
+    setQEForm({
+      name: "",
+      mobile: "",
+      email: "",
+    });
+  };
+  // const [loading, setLoading] = useState(false);
   return (
-    <>
+    <div>
       <MyNavbar />
       <div>
         <Container
@@ -189,6 +221,85 @@ function Index() {
             />
           </div>
         </div>
+        <Container
+          fluid
+          className="mt-2"
+         
+        >
+          <Row>
+            <Col md={12} xs={12}>
+              <Card style={{ backgroundColor: "#98b8f5" }}>
+                <CardTitle
+                  style={{
+                    fontFamily: "Sixtyfour, sans-serif",
+                  }}
+                  className="text-center mt-2"
+                >
+                  <h3 className="EnquiryTitle">Quick Enquiry</h3>
+                </CardTitle>
+                <CardBody>
+                  <Form>
+                    <Row>
+                      <Col md={3} xs={12}>
+                        <FormGroup>
+                          <label className="LabelName">Name</label>
+                          <FormControl
+                            type="text"
+                            placeholder="Enter Your Name"
+                            onChange={(event) => handleChange(event, "name")}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col md={3} xs={12}>
+                        <FormGroup>
+                          <label className="LabelName">Contact Number</label>
+                          <FormControl
+                            type="text"
+                            placeholder="Enter Your Number"
+                            onChange={(event) => handleChange(event, "mobile")}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col md={3} xs={12}>
+                        <FormGroup>
+                          <label className="LabelName">Email</label>
+                          <FormControl
+                            type="text"
+                            placeholder="Enter Your Name"
+                            onChange={(event) => handleChange(event, "email")}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col md={3} xs={12}>
+                        <div style={{ marginTop: 15 }}>
+                          <Button
+                            className="mt-2"
+                            variant="primary"
+                            style={{
+                              backgroundColor: "#05215e",
+                              color: "white",
+                            }}
+                          >
+                            Submit
+                          </Button>
+                          &nbsp;
+                          <Button
+                            onClick={handleReset}
+                            className="mt-2"
+                            variant="danger"
+                            type="reset"
+                          >
+                            Reset
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Form>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
 
         <Container fluid className="px-5 pt-5">
           <Row>
@@ -211,12 +322,12 @@ function Index() {
         <section>
           <div
             className="d-flex justify-content-center align-items-center text-center"
-            style={{ backgroundColor: "#98b8f5", height: "100px" }}
+            style={{ backgroundColor: "#98b8f5", height: "80px" }}
           >
             <h2
               style={{
                 fontFamily: "Sixtyfour, sans-serif",
-                marginTop: "25px",
+                marginTop: "10px",
                 backgroundColor: "#05215e",
                 color: "white",
                 boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
@@ -285,7 +396,7 @@ function Index() {
         </section>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 export default Index;

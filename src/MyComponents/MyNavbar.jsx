@@ -9,7 +9,6 @@ import Logo from "../assets/TradeMoversBlackLogo.png";
 import { useContext } from "react";
 import UserContext from "../Context/user.context";
 import { toast } from "react-toastify";
-
 function MyNavbar() {
   const redirect = useNavigate();
   const userContext = useContext(UserContext);
