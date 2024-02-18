@@ -5,6 +5,7 @@
 .scroll-container {
   display: flex;
   animation: scroll 18s linear infinite;
+  flex-wrap: nowrap;
 }
 
 .scroll-item {
@@ -35,9 +36,18 @@
 
 @media (max-width: 767px) {
   .EnquiryTitle{
-    margin-top: 5px !important;
+    margin-top: 8px !important;
   }
   .baseName{
     font-size: 15px;
+  }
+  .icon{
+    font-size: 8px;
+  }
+  .EnquiryTitle{
+    font-size: 30px !important;
+  }
+  FormControl{
+    margin-top: 5px;
   }
 }

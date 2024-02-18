@@ -1,0 +1,11 @@
+@media (max-width: 767px) {
+  .AboutUsHeading{
+    font-size: 25px !important;
+  }
+  .AboutUsPara{
+   font-size: 15px !important;
+  }
+  .imgTag{
+    width: 240px !important;
+  }
+}

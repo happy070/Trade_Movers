@@ -33,7 +33,7 @@ const Footer = () => {
                   fontSize: "15px",
                 }}
               >
-                For Any Query{" "}
+                For Latest Offers
               </h3>
               <Form className="d-flex">
                 <Form.Control
@@ -58,9 +58,9 @@ const Footer = () => {
         </Container>
         <Container style={{ marginTop: 30 }}>
           <Row className="text-center">
-            <Col xs={12} md={6}>
+            <Col xs={12} md={9}>
               <div>
-                <div style={{ marginRight: 120 }}>
+                <div style={{ marginRight: 600 }}>
                   <img src={Logo} style={{ height: "75px" }} alt="" />
                 </div>
                 <div>
@@ -85,43 +85,15 @@ const Footer = () => {
                 </div>
               </div>
             </Col>
-            <Col xs={6} md={3}>
-              <div>
-                <div style={{ marginTop: 60 }}>
-                  <h3
-                    style={{
-                      color: "black",
-                      fontFamily: "Sixtyfour, sans-serif",
-                      fontSize: "20px",
-                      marginTop: "-28px",
-                      marginBottom: "38px",
-                    }}
-                  >
-                    Quick Links
-                  </h3>
-                </div>
-                <div
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                >
-                  <h5 className="links">ContactUs</h5>
-                  <h5 className="links">Privacy Policy</h5>
-                  <h5 className="links">Cancellation Policy</h5>
-                  <h5 className="links">Terms & Conditions</h5>
-                </div>
-              </div>
-            </Col>
-            <Col xs={6} md={3}>
+            <Col xs={12} md={3}>
               <div className="foot">
-                <div style={{ marginTop: 60 }}>
+                <div style={{ marginTop: 50 }}>
                   <h3
                     style={{
                       color: "black",
                       fontFamily: "Sixtyfour, sans-serif",
                       fontSize: "20px",
                       marginTop: "-28px",
-                      marginBottom: "38px",
                     }}
                   >
                     Contact Us
@@ -194,28 +166,18 @@ const Footer = () => {
       >
         <Container>
           <Row>
-            <Col xs={6} md={6} className="text-start">
+            <Col xs={12} md={12} className="text-start">
               <h5
                 style={{
                   color: "white",
                   fontFamily: "'Sixtyfour', sans-serif",
                   fontSize: "17px",
+                  justifyContent: "center",
+                  display: "flex",
                 }}
                 className="mt-2 FooterTerms"
               >
-                2024 COPYRIGHT : TRADE-MOVERS
-              </h5>
-            </Col>
-            <Col xs={6} md={6} className="text-end">
-              <h5
-                style={{
-                  color: "white",
-                  fontFamily: "'Sixtyfour', sans-serif",
-                  fontSize: "17px",
-                }}
-                className="mt-2 FooterTerms"
-              >
-                Terms|Privacy|Cookies
+                2024 COPYRIGHT : TRADE-MOVERS ❤️
               </h5>
             </Col>
           </Row>
