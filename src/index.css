@@ -35,11 +35,17 @@
 }
 
 @media (max-width: 767px) {
+  #carouselItem{
+    height: 500px !important;
+  }
+  #carouselimg{
+    height: 250px !important;
+  }
   .EnquiryTitle{
     margin-top: 8px !important;
   }
   .baseName{
-    font-size: 15px;
+    font-size: 25px !important;
   }
   .icon{
     font-size: 8px;

@@ -90,7 +90,6 @@ const AddCategory = () => {
               className="text-center"
             >
               Add Your Category
-              {JSON.stringify(category)}
             </h3>
             <Form onSubmit={handleFormSubmit}>
               <FormGroup>

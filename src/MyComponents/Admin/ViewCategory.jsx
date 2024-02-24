@@ -65,7 +65,7 @@ const ViewCategory = () => {
       <ListGroup
         className="mb-2"
         style={{
-          fontFamily: "Sixtyfour, sans-serif",
+          fontFamily: "poppins, sans-serif",
           fontSize: "17px",
           boxShadow: "0 5px 8px rgba(0, 0, 0, 0.5)",
         }}

@@ -5,15 +5,31 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/TradeMoversBlackLogo.png";
-import { useContext } from "react";
+import Logo from "../assets/TradeMoverLogoWhite.png";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/user.context";
 import { toast } from "react-toastify";
+import { getCategories } from "../Services/category.service";
 function MyNavbar() {
   const redirect = useNavigate();
   const userContext = useContext(UserContext);
+  const [categories, setCategories] = useState(null);
+  useEffect(() => {
+    loadCategories(0, 10000);
+  }, []);
+
+  const loadCategories = (pageNumber, pageSize) => {
+    getCategories(pageNumber, pageSize)
+      .then((data) => {
+        console.log(data);
+        setCategories({ ...data });
+      })
+      .then((error) => {
+        console.error(error);
+      });
+  };
   const MyStyle = {
-    backgroundColor: "#f2f5f7",
+    backgroundColor: "#3d63ae",
   };
   function LogOut() {
     // userContext.setIsLogin(false);
@@ -50,7 +66,10 @@ function MyNavbar() {
                     <Nav.Link
                       as={NavLink}
                       to="/Admin/home"
-                      style={{ color: "black" }}
+                      style={{
+                        color: "white",
+                        fontFamily: "Poppins, sans-serif",
+                      }}
                       href="#action1"
                     >
                       Admin-DashBoard
@@ -69,7 +88,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/Users/orders"
-                  style={{ color: "black" }}
+                  style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
                   href="#action1"
                 >
                   Orders
@@ -77,7 +96,7 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/"
-                  style={{ color: "black" }}
+                  style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
                   href="#action2"
                   onClick={LogOut}
                 >
@@ -89,25 +108,25 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/LoginPage"
-                  style={{ color: "black" }}
+                  style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
                   href="#action1"
                 >
                   Login
                 </Nav.Link>
-                <Nav.Link
+                {/* <Nav.Link
                   as={NavLink}
                   to="/SignUpPage"
-                  style={{ color: "black" }}
+                  style={{ color: "black", fontFamily: "Poppins, sans-serif" }}
                   href="#action2"
                 >
                   SignUp
-                </Nav.Link>
+                </Nav.Link> */}
               </>
             )}
             <Nav.Link
               as={NavLink}
               to="/AboutPage"
-              style={{ color: "black" }}
+              style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
               href="#action2"
             >
               AboutUs
@@ -115,22 +134,22 @@ function MyNavbar() {
             <Nav.Link
               as={NavLink}
               to="/ContactUsPage"
-              style={{ color: "black" }}
+              style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
               href="#action2"
             >
               ContactUs
             </Nav.Link>
             <NavDropdown
-              style={{ color: "black" }}
-              title="Product Categories"
+              style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
+              title={<span style={{ color: "white" }}>Product Categories</span>}
               id="navbarScrollingDropdown"
             >
-              <NavDropdown.Item href="#action3">Smart-Phones</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">TVs</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Laptop</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Kitchenware</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Download App</NavDropdown.Item>
+              {categories &&
+                categories.content.map((cat, index) => (
+                  <NavDropdown.Item href="#action3" key={index}>
+                    {cat.title}
+                  </NavDropdown.Item>
+                ))}
             </NavDropdown>
           </Nav>
           <Form className="d-flex">

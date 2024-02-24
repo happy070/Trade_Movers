@@ -20,7 +20,7 @@ const Profile = () => {
         <div>
           <h2
             style={{
-              fontFamily: "Sixtyfour, sans-serif",
+              fontFamily: "poppins, sans-serif",
               marginTop: "10px",
               backgroundColor: "#05215e",
               color: "white",

@@ -25,7 +25,7 @@ function HomePage() {
     <>
       <MyNavbar />
       <Base
-        title="Happy Electronics"
+        title="Trade Movers"
         discription="Plug into happiness"
         ButtonEnabled={true}
         ButtonText="Subscribe"

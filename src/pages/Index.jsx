@@ -9,7 +9,6 @@ import Vouchers from "../assets/Carousels/GiftVouchers.jpg";
 import KitchenItems from "../assets/Carousels/Kitchen.jpg";
 import OfficeEssentail from "../assets/Carousels/OfficeEssentials.jpg";
 import Onboarding from "../assets/Carousels/Onboarding.jpg";
-import giftbox from "../assets/icons/gift.png";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
@@ -25,9 +24,10 @@ import {
   FormGroup,
   Row,
   Form,
+  FormLabel,
 } from "react-bootstrap";
 import "../../src/index.css";
-import CategoryView from "../MyComponents/CategoryView";
+import StoreView from "../MyComponents/StoreView.jsx";
 import Footer from "../MyComponents/Footer.jsx";
 import HandGift from "../assets/HandGiftingP.png";
 import LoveGift from "../assets/loveGiftBags.png";
@@ -43,6 +43,8 @@ import { useState } from "react";
 import { QuickEnquiry } from "../Services/user.service.js";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample.jsx";
+import Testimonials from "../MyComponents/Testimonials.jsx";
 
 function Index() {
   const [qEForm, setQEForm] = useState({
@@ -112,10 +114,10 @@ function Index() {
     <div>
       <MyNavbar />
       <div>
-        <Container
+        {/* <Container
           fluid
           className="d-flex justify-content-center align-items-center text-center"
-          style={{ backgroundColor: "#98b8f5", height: "120px" }}
+          style={{ backgroundColor: "#3d63ae", height: "120px" }}
         >
           <img
             src={HandGift}
@@ -125,7 +127,7 @@ function Index() {
           <div>
             <h2
               style={{
-                fontFamily: "Sixtyfour, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 marginTop: "25px",
                 backgroundColor: "#05215e",
                 color: "white",
@@ -140,6 +142,7 @@ function Index() {
                 fontFamily: "Poppins, sans-serif",
                 fontSize: "26px",
                 marginTop: "15px",
+                color: "white",
               }}
               className="subBaseName"
             >
@@ -158,115 +161,125 @@ function Index() {
             style={{ height: 130, position: "absolute", right: 18, zIndex: 1 }}
             alt="Right Image"
           />
-        </Container>
+        </Container> */}
         <div className="overflow-auto">
           <div className="d-flex scroll-container">
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                width: "100%",
+                height: "400px",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={watches}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                width: "100%",
+                height: "400px",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={Luggage}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                width: "100%",
+                height: "400px",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={BTshirt}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                width: "100%",
+                height: "400px",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={Onboarding}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                width: "100%",
+                height: "400px",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={Vouchers}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                height: "400px",
+                width: "100%",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={OfficeEssentail}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                height: "400px",
+                width: "100%",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={KitchenItems}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                height: "400px",
+                width: "100%",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={Drink}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                height: "400px",
+                width: "100%",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={EcoFriend}
               text="First slide"
             />
             <img
               style={{
-                height: "200px",
-                width: "300px",
+                height: "400px",
+                width: "100%",
                 borderRadius: "25px",
                 margin: 10,
               }}
+              id="carouselimg"
               className="scroll-item"
               src={Electronics}
               text="First slide"
@@ -274,17 +287,21 @@ function Index() {
           </div>
         </div>
         <Container fluid className="mt-2">
-          <Row>
+          <Row className="justify-content-center">
             <Col md={12} xs={12}>
-              <Card style={{ backgroundColor: "#98b8f5" }}>
+              <Card>
                 <CardTitle
                   style={{
                     fontFamily: "Poppins, sans-serif",
+                    color: "#3d63ae",
+                    fontSize: "50px",
                   }}
                   className="text-center mt-2"
                 >
-                  <h3 className="EnquiryTitle">
-                    Quick Enquiry{" "}
+                  <h1 className="EnquiryTitle">
+                    <b>
+                      <i>Quick Enquiry</i>
+                    </b>
                     <span>
                       <img
                         src={Pencil}
@@ -292,14 +309,19 @@ function Index() {
                         style={{ width: 40 }}
                       />
                     </span>{" "}
-                  </h3>
+                  </h1>
                 </CardTitle>
                 <CardBody>
                   <Form onSubmit={HandleSubmit}>
                     <Row>
-                      <Col md={2} xs={12}>
+                      <Col md={3} xs={12}>
                         <FormGroup>
-                          <label className="LabelName">Name</label>
+                          <label
+                            className="LabelName"
+                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                          >
+                            Name
+                          </label>
                           <FormControl
                             id="name"
                             type="text"
@@ -308,9 +330,14 @@ function Index() {
                           />
                         </FormGroup>
                       </Col>
-                      <Col md={2} xs={12}>
+                      <Col md={3} xs={12}>
                         <FormGroup>
-                          <label className="LabelName">Contact Number</label>
+                          <label
+                            className="LabelName"
+                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                          >
+                            Contact Number
+                          </label>
                           <FormControl
                             id="mobile"
                             type="text"
@@ -319,9 +346,14 @@ function Index() {
                           />
                         </FormGroup>
                       </Col>
-                      <Col md={2} xs={12}>
+                      <Col md={3} xs={12}>
                         <FormGroup>
-                          <label className="LabelName">Email</label>
+                          <label
+                            className="LabelName"
+                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                          >
+                            Email
+                          </label>
                           <FormControl
                             id="email"
                             type="text"
@@ -330,9 +362,14 @@ function Index() {
                           />
                         </FormGroup>
                       </Col>
-                      <Col md={2} xs={12}>
+                      <Col md={3} xs={12}>
                         <FormGroup>
-                          <label className="LabelName">Message</label>
+                          <label
+                            className="LabelName"
+                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                          >
+                            Message
+                          </label>
                           <FormControl
                             id="message"
                             type="text"
@@ -341,8 +378,15 @@ function Index() {
                           />
                         </FormGroup>
                       </Col>
-                      <Col md={2} xs={8}>
-                        <div style={{ marginTop: 15 }}>
+                      <Col md={12} xs={8}>
+                        <div
+                          style={{
+                            marginTop: 15,
+                            justifyContent: "center",
+                            alignItems: "center",
+                            display: "flex",
+                          }}
+                        >
                           <Button
                             className="mt-2"
                             variant="primary"
@@ -372,42 +416,55 @@ function Index() {
             </Col>
           </Row>
         </Container>
-
-        <Container fluid className="px-5 pt-5">
-          <Row>
-            <Col
-              md={12}
-              lg={2}
-              style={{
-                paddingTop: "20px",
-                borderRight: "1px solid #ccc",
-              }}
-              className="shadow p-3 mb-5 bg-white rounded"
-            >
-              <CategoryView />
-            </Col>
-            <Col md={10}>
-              <h3>Product view</h3>
-            </Col>
-          </Row>
-        </Container>
+        {/* Store Product and Category  */}
+        <div>
+          <StoreView />
+        </div>
         <section>
           <div
             className="d-flex justify-content-center align-items-center text-center"
-            style={{ backgroundColor: "#98b8f5", height: "80px" }}
+            style={{ backgroundColor: "white", height: "80px" }}
           >
-            <h2
+            <h1
               style={{
-                fontFamily: "Sixtyfour, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 marginTop: "10px",
-                backgroundColor: "#05215e",
-                color: "white",
-                boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+                fontSize: "50px",
+                color: "#3d63ae",
               }}
               className="baseName"
             >
-              Clients Who Trust Us...
-            </h2>
+              <b>
+                <i> Our Achievments🏆</i>
+              </b>
+            </h1>
+          </div>
+          <div>
+            <img
+              src={OurAchivements}
+              alt="img not Found"
+              style={{ width: "100%" }}
+            />
+          </div>
+        </section>
+        <section>
+          <div
+            className="d-flex justify-content-center align-items-center text-center"
+            style={{ backgroundColor: "white", height: "80px" }}
+          >
+            <h1
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                marginTop: "10px",
+                fontSize: "50px",
+                color: "#3d63ae",
+              }}
+              className="baseName"
+            >
+              <b>
+                <i>Clients Who Trust Us❤️</i>
+              </b>
+            </h1>
           </div>
           <div className="overflow-auto">
             <div className="d-flex scroll-container">
@@ -457,15 +514,28 @@ function Index() {
             </div>
           </div>
         </section>
-        <section>
-          <div>
-            <img
-              src={OurAchivements}
-              alt="img not Found"
-              style={{ width: "100%" }}
-            />
-          </div>
-        </section>
+        <div
+          className="d-flex justify-content-center align-items-center text-center"
+          style={{ backgroundColor: "white", height: "80px" }}
+        >
+          <hr />
+          <h1
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              marginTop: "10px",
+              fontSize: "50px",
+              color: "#3d63ae",
+            }}
+            className="baseName"
+          >
+            <b>
+              <i>Testimonials✍️</i>
+            </b>
+          </h1>
+        </div>
+        <div>
+          <IndividualIntervalsExample />
+        </div>
         <Container fluid>
           <Row>
             <Col md={7} sm={12}>
@@ -508,33 +578,48 @@ function Index() {
                 <div>
                   <IoMailOpenOutline style={{ width: 40, height: 40 }} />
                 </div>
-                <p
-                  style={{
-                    fontFamily: "poppins,sans-serif",
-                    marginTop: 10,
-                    marginLeft: 10,
-                  }}
+                <a
+                  href="mailto:trademover90@gmail.com"
+                  style={{ textDecoration: "none" }}
                 >
-                  trademover90@gmail.com
-                </p>
+                  <p
+                    style={{
+                      fontFamily: "poppins,sans-serif",
+                      marginTop: 10,
+                      marginLeft: 10,
+                      color: "black",
+                    }}
+                  >
+                    trademover90@gmail.com
+                  </p>
+                </a>
               </div>
               <div style={{ display: "flex", marginTop: 20 }}>
                 <div>
                   <FaPhoneVolume style={{ width: 40, height: 40 }} />
                 </div>
-                <p
-                  style={{
-                    fontFamily: "poppins,sans-serif",
-                    marginTop: 10,
-                    marginLeft: 10,
-                  }}
-                >
-                  +91 9870801469
-                </p>
+                <a href="tel:+919870801469" style={{ textDecoration: "none" }}>
+                  <p
+                    style={{
+                      fontFamily: "poppins,sans-serif",
+                      marginTop: 10,
+                      marginLeft: 10,
+                      color: "black",
+                    }}
+                  >
+                    +91 9870801469
+                  </p>
+                </a>
               </div>
               <Col md={12}>
                 <a href="https://maps.app.goo.gl/t5KuxYwPNn86nhjZA">
-                  <Button style={{ width: "100%", marginTop: 30 }}>
+                  <Button
+                    style={{
+                      width: "100%",
+                      marginTop: 30,
+                      backgroundColor: "#05215e",
+                    }}
+                  >
                     Get Direction
                   </Button>
                 </a>

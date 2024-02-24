@@ -5,7 +5,7 @@ import instagram from "../assets/icons/instagram.png";
 import facebook from "../assets/icons/facebook.png";
 import Linkdin from "../assets/icons/Linkdin.png";
 import "../MyComponents/Footer.jsx";
-import Logo from "../assets/TradeMoversBlackLogo.png";
+import Logo from "../assets/TradeMoverLogoWhite.png";
 import "../MyComponents/Footer.css";
 const Footer = () => {
   return (
@@ -13,12 +13,12 @@ const Footer = () => {
       <div
         style={{
           border: "1px solid #000",
-          backgroundColor: "#98b8f5",
+          backgroundColor: "#3d63ae",
           marginTop: "5px",
         }}
       >
         <Container
-          style={{ marginTop: 30, color: "#98b8f5", marginBottom: "0px" }}
+          style={{ marginTop: 30, color: "#3d63ae", marginBottom: "0px" }}
         >
           <Row className="mx-auto">
             <Col
@@ -28,8 +28,8 @@ const Footer = () => {
             >
               <h3
                 style={{
-                  color: "black",
-                  fontFamily: "Sixtyfour, sans-serif",
+                  color: "white",
+                  fontFamily: "Poppins, sans-serif",
                   fontSize: "15px",
                 }}
               >
@@ -60,7 +60,7 @@ const Footer = () => {
           <Row className="text-center">
             <Col xs={12} md={9}>
               <div>
-                <div style={{ marginRight: 600 }}>
+                <div style={{ marginRight: 10 }}>
                   <img src={Logo} style={{ height: "75px" }} alt="" />
                 </div>
                 <div>
@@ -69,6 +69,7 @@ const Footer = () => {
                       fontFamily: "Poppins, sans-serif",
                       marginTop: "15px",
                       textAlign: "left",
+                      color: "white",
                     }}
                   >
                     Trade Movers Started its journey in the year 2011, Since
@@ -90,10 +91,10 @@ const Footer = () => {
                 <div style={{ marginTop: 50 }}>
                   <h3
                     style={{
-                      color: "black",
-                      fontFamily: "Sixtyfour, sans-serif",
+                      fontFamily: "Poppins, sans-serif",
                       fontSize: "20px",
                       marginTop: "-28px",
+                      color: "white",
                     }}
                   >
                     Contact Us
@@ -109,7 +110,9 @@ const Footer = () => {
                       src={whatsapp}
                       alt="WhatsApp"
                     />
-                    <span style={{ marginLeft: 5 }}>Whatsapp</span>
+                    <span style={{ marginLeft: 5, color: "white" }}>
+                      Whatsapp
+                    </span>
                   </a>
                   <br />
                   <a
@@ -121,7 +124,9 @@ const Footer = () => {
                       src={instagram}
                       alt="Instagram"
                     />
-                    <span style={{ marginLeft: 5 }}>Instagram</span>
+                    <span style={{ marginLeft: 5, color: "white" }}>
+                      Instagram
+                    </span>
                   </a>
                   <br />
                   <a
@@ -133,7 +138,9 @@ const Footer = () => {
                       src={facebook}
                       alt="Facebook"
                     />
-                    <span style={{ marginLeft: 5 }}>Facebook</span>
+                    <span style={{ marginLeft: 5, color: "white" }}>
+                      Facebook
+                    </span>
                   </a>
                   <br />
                   <a
@@ -149,7 +156,9 @@ const Footer = () => {
                       src={Linkdin}
                       alt="Linkdin"
                     />
-                    <span style={{ marginLeft: 4 }}>Linkdin</span>
+                    <span style={{ marginLeft: 4, color: "white" }}>
+                      Linkdin
+                    </span>
                   </a>
                   <br />
                 </div>
@@ -170,7 +179,7 @@ const Footer = () => {
               <h5
                 style={{
                   color: "white",
-                  fontFamily: "'Sixtyfour', sans-serif",
+                  fontFamily: "'Poppins', sans-serif",
                   fontSize: "17px",
                   justifyContent: "center",
                   display: "flex",

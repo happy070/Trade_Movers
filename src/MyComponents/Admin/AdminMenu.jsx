@@ -35,7 +35,7 @@ const AdminMenu = () => {
       <h5
         className="text-center category"
         style={{
-          fontFamily: "Sixtyfour, sans-serif",
+          fontFamily: "poppinsr, sans-serif",
           fontSize: "17px",
           boxShadow: "0 5px 8px rgba(0, 0, 0, 0.1)",
         }}
