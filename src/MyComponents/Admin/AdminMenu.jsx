@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import "../../index.css";
-import { NavLink } from "react-router-dom";
-import { IoMdHome } from "react-icons/io";
+import { Link, NavLink } from "react-router-dom";
 import { BiCategory } from "react-icons/bi";
 import { TbCategoryPlus } from "react-icons/tb";
 import { MdOutlineAddBox } from "react-icons/md";
@@ -10,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaAngellist } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 const AdminMenu = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Home");
+  const [selectedCategory, setSelectedCategory] = useState("Add Category");
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -43,20 +42,6 @@ const AdminMenu = () => {
         CATEGORIES
       </h5>
       <Row style={{ backgroundColor: "#f2f5f7" }}>
-        <Col xs={6} md={12}>
-          <ListGroup>
-            <ListGroupItem
-              onClick={() => handleCategoryClick("Home")}
-              style={selectedCategory === "Home" ? selectedStyle : commonStyle}
-              as={NavLink}
-              to="/"
-            >
-              <strong className="icon">
-                <IoMdHome size={20} /> <span className="ms-1">Home</span> &nbsp;
-              </strong>
-            </ListGroupItem>
-          </ListGroup>
-        </Col>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
@@ -138,23 +123,65 @@ const AdminMenu = () => {
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
-              onClick={() => handleCategoryClick("Orders")}
+              onClick={() => handleCategoryClick("Quick Enquiry")}
               style={
-                selectedCategory === "Orders" ? selectedStyle : commonStyle
+                selectedCategory === "Quick Enquiry"
+                  ? selectedStyle
+                  : commonStyle
               }
               as={NavLink}
               to="/Admin/orders"
             >
               <strong className="icon">
                 <FaAngellist />
-                <span className="ms-1">Orders </span>&nbsp;
+                <span className="ms-1">Quick Enquiry </span>&nbsp;
               </strong>
             </ListGroupItem>
           </ListGroup>
         </Col>
       </Row>
       <Row style={{ backgroundColor: "#f2f5f7" }}>
-        <Col xs={12} md={12}>
+        <Col xs={6} md={12}>
+          <ListGroup>
+            <ListGroupItem
+              className="text-center"
+              onClick={() => handleCategoryClick("Orders")}
+              style={
+                selectedCategory === "Orders" ? selectedStyle : commonStyle
+              }
+              as={Link}
+              to="/"
+            >
+              <strong className="icon">
+                <FaAngellist />
+                <span className="ms-1">Orders</span> &nbsp;
+              </strong>
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
+        <Col xs={6} md={12}>
+          <ListGroup>
+            <ListGroupItem
+              className="text-center"
+              onClick={() => handleCategoryClick("Add-Carousel")}
+              style={
+                selectedCategory === "Add-Carousel"
+                  ? selectedStyle
+                  : commonStyle
+              }
+              as={Link}
+              to="/Admin/add-carousel"
+            >
+              <strong className="icon">
+                <TbLogout2 size={20} />
+                <span className="ms-1">Add-Carousel</span> &nbsp;
+              </strong>
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
+      </Row>
+      <Row style={{ backgroundColor: "#f2f5f7" }}>
+        <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
               className="text-center"
@@ -162,6 +189,8 @@ const AdminMenu = () => {
               style={
                 selectedCategory === "Logout" ? selectedStyle : commonStyle
               }
+              as={Link}
+              to="/"
             >
               <strong className="icon">
                 <TbLogout2 size={20} />

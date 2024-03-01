@@ -24,27 +24,22 @@ import {
   FormGroup,
   Row,
   Form,
-  FormLabel,
+  Carousel,
 } from "react-bootstrap";
 import "../../src/index.css";
 import StoreView from "../MyComponents/StoreView.jsx";
 import Footer from "../MyComponents/Footer.jsx";
-import HandGift from "../assets/HandGiftingP.png";
-import LoveGift from "../assets/loveGiftBags.png";
+
 import OurAchivements from "../assets/Clients/achivements.jpg";
-import OurCustomer1 from "../assets/Clients/ourcustomer1.png";
-import OurCustomer2 from "../assets/Clients/ourcustomer2.png";
-import OurCustomer3 from "../assets/Clients/ourcustomer3.png";
-import OurCustomer4 from "../assets/Clients/ourcustomer4.png";
-import OurCustomer5 from "../assets/Clients/ourcustomer5.png";
-import OurCustomer6 from "../assets/Clients/ourcustomer6.png";
+import oc1 from "../assets/Clients/oc1.jpg";
+import oc2 from "../assets/Clients/oc2.jpg";
+import oc3 from "../assets/Clients/oc3.jpg";
 import Pencil from "../assets/icons/pencil.png";
 import { useState } from "react";
 import { QuickEnquiry } from "../Services/user.service.js";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample.jsx";
-import Testimonials from "../MyComponents/Testimonials.jsx";
 
 function Index() {
   const [qEForm, setQEForm] = useState({
@@ -109,59 +104,10 @@ function Index() {
     document.getElementById("mobile").value = "";
     document.getElementById("message").value = "";
   };
-  // const [loading, setLoading] = useState(false);
   return (
     <div>
       <MyNavbar />
       <div>
-        {/* <Container
-          fluid
-          className="d-flex justify-content-center align-items-center text-center"
-          style={{ backgroundColor: "#3d63ae", height: "120px" }}
-        >
-          <img
-            src={HandGift}
-            style={{ height: 120, position: "absolute", left: 0, zIndex: 1 }}
-            alt="Left Image"
-          />
-          <div>
-            <h2
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                marginTop: "25px",
-                backgroundColor: "#05215e",
-                color: "white",
-                boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
-              }}
-              className="baseName"
-            >
-              Welcome to Trade Movers...
-            </h2>
-            <h4
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                fontSize: "26px",
-                marginTop: "15px",
-                color: "white",
-              }}
-              className="subBaseName"
-            >
-              Promotional & Corporate Gifting
-              <span>
-                <img
-                  src={giftbox}
-                  style={{ height: 40, marginTop: -5 }}
-                  alt="image not Found"
-                />
-              </span>
-            </h4>
-          </div>
-          <img
-            src={LoveGift}
-            style={{ height: 130, position: "absolute", right: 18, zIndex: 1 }}
-            alt="Right Image"
-          />
-        </Container> */}
         <div className="overflow-auto">
           <div className="d-flex scroll-container">
             <img
@@ -286,6 +232,93 @@ function Index() {
             />
           </div>
         </div>
+
+        {/* Store Product and Category  */}
+        <div>
+          <StoreView />
+        </div>
+        <section>
+          <div
+            className="d-flex justify-content-center align-items-center text-center"
+            style={{ backgroundColor: "white", height: "80px" }}
+          >
+            <h1
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                marginTop: "10px",
+                fontSize: "50px",
+                color: "black",
+              }}
+              className="baseName"
+            >
+              <b>
+                <i> Our Achievments🏆</i>
+              </b>
+            </h1>
+          </div>
+          <div>
+            <img
+              src={OurAchivements}
+              alt="img not Found"
+              style={{ width: "100%" }}
+            />
+          </div>
+        </section>
+        <section>
+          <div
+            className="d-flex justify-content-center align-items-center text-center"
+            style={{ backgroundColor: "white", height: "80px" }}
+          >
+            <h1
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                marginTop: "10px",
+                fontSize: "50px",
+                color: "black",
+              }}
+              className="baseName"
+            >
+              <b>
+                <i>Clients Who Trust Us❤️</i>
+              </b>
+            </h1>
+          </div>
+          <div>
+            <Carousel variant="dark">
+              <Carousel.Item>
+                <img src={oc1} style={{ width: "100%" }} alt="" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img src={oc2} style={{ width: "100%" }} alt="" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img src={oc3} style={{ width: "100%" }} alt="" />
+              </Carousel.Item>
+            </Carousel>
+          </div>
+        </section>
+        <div
+          className="d-flex justify-content-center align-items-center text-center"
+          style={{ backgroundColor: "white", height: "80px" }}
+        >
+          <hr />
+          <h1
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              marginTop: "10px",
+              fontSize: "50px",
+              color: "black",
+            }}
+            className="baseName"
+          >
+            <b>
+              <i>Testimonials✍️</i>
+            </b>
+          </h1>
+        </div>
+        <div>
+          <IndividualIntervalsExample />
+        </div>
         <Container fluid className="mt-2">
           <Row className="justify-content-center">
             <Col md={12} xs={12}>
@@ -293,7 +326,7 @@ function Index() {
                 <CardTitle
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    color: "#3d63ae",
+                    color: "black",
                     fontSize: "50px",
                   }}
                   className="text-center mt-2"
@@ -311,14 +344,14 @@ function Index() {
                     </span>{" "}
                   </h1>
                 </CardTitle>
-                <CardBody>
+                <CardBody style={{ backgroundColor: "#3d63ae" }}>
                   <Form onSubmit={HandleSubmit}>
                     <Row>
                       <Col md={3} xs={12}>
                         <FormGroup>
                           <label
                             className="LabelName"
-                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                            style={{ color: "white", fontSize: "20px" }}
                           >
                             Name
                           </label>
@@ -334,7 +367,7 @@ function Index() {
                         <FormGroup>
                           <label
                             className="LabelName"
-                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                            style={{ color: "white", fontSize: "20px" }}
                           >
                             Contact Number
                           </label>
@@ -350,7 +383,7 @@ function Index() {
                         <FormGroup>
                           <label
                             className="LabelName"
-                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                            style={{ color: "white", fontSize: "20px" }}
                           >
                             Email
                           </label>
@@ -366,7 +399,7 @@ function Index() {
                         <FormGroup>
                           <label
                             className="LabelName"
-                            style={{ color: "#3d63ae", fontSize: "20px" }}
+                            style={{ color: "white", fontSize: "20px" }}
                           >
                             Message
                           </label>
@@ -416,126 +449,6 @@ function Index() {
             </Col>
           </Row>
         </Container>
-        {/* Store Product and Category  */}
-        <div>
-          <StoreView />
-        </div>
-        <section>
-          <div
-            className="d-flex justify-content-center align-items-center text-center"
-            style={{ backgroundColor: "white", height: "80px" }}
-          >
-            <h1
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                marginTop: "10px",
-                fontSize: "50px",
-                color: "#3d63ae",
-              }}
-              className="baseName"
-            >
-              <b>
-                <i> Our Achievments🏆</i>
-              </b>
-            </h1>
-          </div>
-          <div>
-            <img
-              src={OurAchivements}
-              alt="img not Found"
-              style={{ width: "100%" }}
-            />
-          </div>
-        </section>
-        <section>
-          <div
-            className="d-flex justify-content-center align-items-center text-center"
-            style={{ backgroundColor: "white", height: "80px" }}
-          >
-            <h1
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                marginTop: "10px",
-                fontSize: "50px",
-                color: "#3d63ae",
-              }}
-              className="baseName"
-            >
-              <b>
-                <i>Clients Who Trust Us❤️</i>
-              </b>
-            </h1>
-          </div>
-          <div className="overflow-auto">
-            <div className="d-flex scroll-container">
-              <img
-                style={{
-                  width: "100%",
-
-                  margin: 10,
-                }}
-                src={OurCustomer1}
-              />
-              <img
-                style={{
-                  width: "100%",
-                  margin: 10,
-                }}
-                src={OurCustomer2}
-              />
-              <img
-                style={{
-                  width: "100%",
-                  margin: 10,
-                }}
-                src={OurCustomer3}
-              />
-              <img
-                style={{
-                  width: "100%",
-                  margin: 10,
-                }}
-                src={OurCustomer4}
-              />
-              <img
-                style={{
-                  width: "100%",
-                  margin: 10,
-                }}
-                src={OurCustomer5}
-              />
-              <img
-                style={{
-                  width: "100%",
-                  margin: 10,
-                }}
-                src={OurCustomer6}
-              />
-            </div>
-          </div>
-        </section>
-        <div
-          className="d-flex justify-content-center align-items-center text-center"
-          style={{ backgroundColor: "white", height: "80px" }}
-        >
-          <hr />
-          <h1
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              marginTop: "10px",
-              fontSize: "50px",
-              color: "#3d63ae",
-            }}
-            className="baseName"
-          >
-            <b>
-              <i>Testimonials✍️</i>
-            </b>
-          </h1>
-        </div>
-        <div>
-          <IndividualIntervalsExample />
-        </div>
         <Container fluid>
           <Row>
             <Col md={7} sm={12}>

@@ -35,8 +35,22 @@
 }
 
 @media (max-width: 767px) {
+  .singleproduct{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
   #carouselItem{
     height: 500px !important;
+  }
+  .category{
+    font-size: 22px !important;
+  }
+  .category-names{
+    font-size: 15px !important;
+  }
+  #SelectedProductViewImg{
+    width: 200px !important;
   }
   #carouselimg{
     height: 250px !important;
@@ -48,7 +62,7 @@
     font-size: 25px !important;
   }
   .icon{
-    font-size: 8px;
+    font-size: 15px !important;
   }
   .EnquiryTitle{
     font-size: 30px !important;
@@ -56,4 +70,7 @@
   FormControl{
     margin-top: 5px;
   }
+}
+.LabelNameSPV{
+  font-size: 15px !important;
 }

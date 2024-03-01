@@ -40,3 +40,9 @@ export const deleteProduct = (productId) => {
     .delete(`/products/${productId}`)
     .then((response) => response.data);
 };
+// get single product from server using productID
+export const getProduct = (productId) => {
+  return publicAxios
+    .get(`/products/${productId}`)
+    .then((response) => response.data);
+};

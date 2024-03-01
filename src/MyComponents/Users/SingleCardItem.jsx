@@ -8,9 +8,11 @@ import {
   Container,
 } from "react-bootstrap";
 import { getProductImage } from "../../Services/helper.service";
+import { Link } from "react-router-dom";
+import "../../../src/index.css";
 const SingleCardItem = ({ product }) => {
   return (
-    <div>
+    <div className="singleproduct">
       <Card className="m-1 shadow-sm" style={{ width: "247px" }}>
         <CardBody>
           <Container className="text-center">
@@ -63,7 +65,15 @@ const SingleCardItem = ({ product }) => {
           </h6>
         </CardBody>
         <CardFooter>
-          <Button className="d-grid" style={{ backgroundColor: "#05215e" }}>
+          <Button
+            as={Link}
+            to={`/products/${product.productId}`}
+            onClick={() => {
+              console.log(product.productId);
+            }}
+            className="d-grid"
+            style={{ backgroundColor: "#05215e" }}
+          >
             View Product
           </Button>
         </CardFooter>

@@ -24,3 +24,17 @@ export const getCategories = (currentPage = 0, pageSize = 10) => {
     .get(`/categories?pageNumber=${currentPage}&&pageSize=${pageSize}`)
     .then((response) => response.data);
 };
+// get products of category
+export const getProductsOfCategories = (
+  categoryId,
+  pageNumber = 0,
+  pageSize = 10,
+  sortBy = "addedDate",
+  sortDir = "asc"
+) => {
+  return publicAxios
+    .get(
+      `/categories/${categoryId}/products?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
+    )
+    .then((response) => response.data);
+};

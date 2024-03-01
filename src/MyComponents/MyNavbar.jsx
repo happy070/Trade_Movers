@@ -54,7 +54,7 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className="mr-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
@@ -80,18 +80,10 @@ function MyNavbar() {
                 <Nav.Link
                   as={NavLink}
                   to="/users/profile"
-                  style={{ color: "black" }}
+                  style={{ color: "white" }}
                   href="#action1"
                 >
                   {userContext.userData.user?.name}
-                </Nav.Link>
-                <Nav.Link
-                  as={NavLink}
-                  to="/Users/orders"
-                  style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
-                  href="#action1"
-                >
-                  Orders
                 </Nav.Link>
                 <Nav.Link
                   as={NavLink}
@@ -111,7 +103,7 @@ function MyNavbar() {
                   style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
                   href="#action1"
                 >
-                  Login
+                  Admin-Login
                 </Nav.Link>
                 {/* <Nav.Link
                   as={NavLink}
@@ -131,14 +123,6 @@ function MyNavbar() {
             >
               AboutUs
             </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/ContactUsPage"
-              style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
-              href="#action2"
-            >
-              ContactUs
-            </Nav.Link>
             <NavDropdown
               style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
               title={<span style={{ color: "white" }}>Product Categories</span>}
@@ -152,7 +136,7 @@ function MyNavbar() {
                 ))}
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -163,7 +147,7 @@ function MyNavbar() {
             <Button style={{ backgroundColor: "#05215e", color: "white" }}>
               Search
             </Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

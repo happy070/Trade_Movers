@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProductsOfCategories } from "../../Services/category.service";
+import "../../../src/index.css";
+import SingleCardItem from "../../MyComponents/Users/SingleCardItem";
 import { Col, Container, Row } from "react-bootstrap";
-import "../../src/index.css";
-import { getAllProducts } from "../Services/product.service";
-import { toast } from "react-toastify";
-
-import SingleCardItem from "./Users/SingleCardItem";
-import CategoryView from "../pages/users/CategoryView";
-const StoreView = () => {
+import CategoryView from "./CategoryView";
+import MyNavbar from "../../MyComponents/MyNavbar.jsx";
+const CategoryStorePage = () => {
+  const { categoryId, categoryTitle } = useParams();
   const [product, setProduct] = useState(null);
-
   useEffect(() => {
-    loadProducts(0, 10, "addedDate", "desc");
-  }, []);
+    loadProductsOfCategory(0, 10, "addedDate", "desc");
+  }, [categoryId]);
 
-  const loadProducts = (pageNumber, pageSize, sortBy, sortDir) => {
-    getAllProducts(pageNumber, pageSize, sortBy, sortDir)
+  const loadProductsOfCategory = (pageNumber, pageSize, sortBy, sortDir) => {
+    getProductsOfCategories(categoryId, pageNumber, pageSize, sortBy, sortDir)
       .then((data) => {
-        console.log(data);
+        console.log("getting product from selected Category", data);
         setProduct({ ...data });
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Error In Loading products");
       });
   };
   const ProductView = () => {
@@ -41,18 +40,10 @@ const StoreView = () => {
   };
   return (
     <>
+      <MyNavbar />
       <Container fluid className="px-5 pt-5">
         <Row>
-          <Col
-            md={2}
-            lg={2}
-            xs={12}
-            style={{
-              paddingTop: "20px",
-              borderRight: "1px solid #ccc",
-            }}
-            className="shadow p-3 mb-5 bg-white rounded"
-          >
+          <Col md={2}>
             <CategoryView />
           </Col>
           <Col md={10} className="productview">
@@ -63,4 +54,5 @@ const StoreView = () => {
     </>
   );
 };
-export default StoreView;
+
+export default CategoryStorePage;

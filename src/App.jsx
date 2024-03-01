@@ -20,6 +20,9 @@ import Profile from "./pages/users/Profile";
 import ViewCategory from "./MyComponents/Admin/ViewCategory";
 import AddCategory from "./MyComponents/Admin/AddCategory";
 import ViewProduct from "./MyComponents/Admin/ViewProduct";
+import CategoryStorePage from "./pages/users/CategoryStorePage";
+import SelectedProductView from "./pages/SelectedProductView";
+import AddCarousel from "./MyComponents/Admin/AddCarousel";
 function App() {
   return (
     <>
@@ -32,11 +35,18 @@ function App() {
             <Route path="/LoginPage" element={<LoginPage />}></Route>
             <Route path="/SignUpPage" element={<SignUpPage />}></Route>
             <Route path="/ContactUsPage" element={<ContactUsPage />}></Route>
+            <Route
+              path="/products/:productId"
+              element={<SelectedProductView />}
+            ></Route>
+            <Route
+              path="/store/:categoryId/:categoryTitle"
+              element={<CategoryStorePage />}
+            ></Route>
 
             <Route path="/Users" element={<Dashboard />}>
               <Route path="profile" element={<Profile />} />
               <Route path="home" element={<HomePage />} />
-              <Route path="orders" element={<Orders />} />
               <Route path="about" element={<AboutUser />} />
             </Route>
 
@@ -47,6 +57,7 @@ function App() {
               <Route path="add-category" element={<AddCategory />} />
               <Route path="view-category" element={<ViewCategory />} />
               <Route path="orders" element={<Orders />} />
+              <Route path="add-carousel" element={<AddCarousel />} />
             </Route>
           </Routes>
         </BrowserRouter>
