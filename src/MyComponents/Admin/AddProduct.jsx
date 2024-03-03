@@ -153,7 +153,6 @@ const AddProduct = () => {
         <div>
           <Card>
             <CardBody>
-              {/* {JSON.stringify(product.description)} */}
               <Form onSubmit={HandleSubmit}>
                 <FormGroup>
                   <FormLabel>

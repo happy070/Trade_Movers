@@ -11,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 import UserProvider from "./Context/user.provider";
 import AboutUser from "../src/MyComponents/Users/AboutUser";
 import Index from "./pages/Index";
-import Orders from "./pages/users/Orders";
 import AdminDashboard from "./MyComponents/Admin/AdminDashboard";
 import AdminHome from "./MyComponents/Admin/AdminHome";
 import AddProduct from "./MyComponents/Admin/AddProduct";
@@ -23,6 +22,9 @@ import ViewProduct from "./MyComponents/Admin/ViewProduct";
 import CategoryStorePage from "./pages/users/CategoryStorePage";
 import SelectedProductView from "./pages/SelectedProductView";
 import AddCarousel from "./MyComponents/Admin/AddCarousel";
+import ShowCarousel from "./MyComponents/Admin/ShowCarousel";
+import QuickEnquiry from "./pages/users/QuickEnquiry";
+import Orders from "./MyComponents/Admin/Orders";
 function App() {
   return (
     <>
@@ -56,8 +58,10 @@ function App() {
               <Route path="view-product" element={<ViewProduct />} />
               <Route path="add-category" element={<AddCategory />} />
               <Route path="view-category" element={<ViewCategory />} />
-              <Route path="orders" element={<Orders />} />
+              <Route path="quick-enquiry" element={<QuickEnquiry />} />
               <Route path="add-carousel" element={<AddCarousel />} />
+              <Route path="show-carousel" element={<ShowCarousel />} />
+              <Route path="orders" element={<Orders />} />
             </Route>
           </Routes>
         </BrowserRouter>

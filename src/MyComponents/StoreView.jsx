@@ -5,7 +5,7 @@ import { getAllProducts } from "../Services/product.service";
 import { toast } from "react-toastify";
 
 import SingleCardItem from "./Users/SingleCardItem";
-import CategoryView from "../pages/users/CategoryView";
+import SelectedCategoryView from "../pages/users/SelectedCategoryView";
 const StoreView = () => {
   const [product, setProduct] = useState(null);
 
@@ -53,7 +53,7 @@ const StoreView = () => {
             }}
             className="shadow p-3 mb-5 bg-white rounded"
           >
-            <CategoryView />
+            <SelectedCategoryView />
           </Col>
           <Col md={10} className="productview">
             {ProductView()}

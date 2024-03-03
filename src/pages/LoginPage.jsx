@@ -178,11 +178,11 @@ function LoginPage() {
                     </Button>
                   </div>
                 </Form>
-                <Container className="text-center">
+                {/* <Container className="text-center">
                   <p>
                     Doesn't Have a Account? <a href="/SignUpPage">Signup!</a>
                   </p>
-                </Container>
+                </Container> */}
               </CardBody>
             </Card>
           </Col>

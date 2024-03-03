@@ -106,14 +106,6 @@ function SelectedProductView() {
       .catch((error) => console.log(error));
   };
 
-  const handleAddItem = (productId, quantity) => {
-    //if the product is in stock
-
-    addItem(quantity, productId, () => {
-      toast.success("Product is added to card");
-    });
-  };
-
   const produdctView = () => {
     return (
       <>

@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { getCategories } from "../../Services/category.service";
+import { GetCategory } from "../../Services/category.service";
 import { Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CategoryView = () => {
-  const [categories, setCategories] = useState(null);
+const SelectedCategoryView = () => {
+  const [categories, setCategories] = useState({
+    content: [],
+  });
   const [selectedCategory, setSelectedCategory] = useState("All Products");
 
   useEffect(() => {
-    loadCategories(0, 10000);
-  }, [categories]);
+    loadCategories();
+  }, []);
 
-  const loadCategories = (pageNumber, pageSize) => {
-    getCategories(pageNumber, pageSize)
+  const loadCategories = () => {
+    GetCategory()
       .then((data) => {
-        console.log(data);
-        setCategories({ ...data });
+        console.log("hello");
+        console.log("Getting all category ", data);
+        setCategories(data);
       })
-      .then((error) => {
+      .catch((error) => {
+        console.log("hiii");
         console.error(error);
       });
   };
@@ -42,7 +46,7 @@ const CategoryView = () => {
     color: "white",
   };
 
-  const CategoryView = () => {
+  const GetCategoryView = () => {
     return (
       categories && (
         <>
@@ -97,7 +101,7 @@ const CategoryView = () => {
       )
     );
   };
-  return categories && CategoryView();
+  return categories && GetCategoryView();
 };
 
-export default CategoryView;
+export default SelectedCategoryView;

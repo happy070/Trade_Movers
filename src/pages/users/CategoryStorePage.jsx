@@ -4,8 +4,10 @@ import { getProductsOfCategories } from "../../Services/category.service";
 import "../../../src/index.css";
 import SingleCardItem from "../../MyComponents/Users/SingleCardItem";
 import { Col, Container, Row } from "react-bootstrap";
-import CategoryView from "./CategoryView";
 import MyNavbar from "../../MyComponents/MyNavbar.jsx";
+import SelectedCategoryView from "./SelectedCategoryView.jsx";
+import MyCarousel from "../../MyComponents/MyCarousel.jsx";
+import Footer from "../../MyComponents/Footer.jsx";
 const CategoryStorePage = () => {
   const { categoryId, categoryTitle } = useParams();
   const [product, setProduct] = useState(null);
@@ -41,16 +43,18 @@ const CategoryStorePage = () => {
   return (
     <>
       <MyNavbar />
+      <MyCarousel />
       <Container fluid className="px-5 pt-5">
         <Row>
           <Col md={2}>
-            <CategoryView />
+            <SelectedCategoryView />
           </Col>
           <Col md={10} className="productview">
             {ProductView()}
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };

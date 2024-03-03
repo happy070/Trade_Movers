@@ -24,7 +24,7 @@ function MyNavbar() {
         console.log(data);
         setCategories({ ...data });
       })
-      .then((error) => {
+      .catch((error) => {
         console.error(error);
       });
   };

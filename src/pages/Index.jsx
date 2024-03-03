@@ -40,7 +40,7 @@ import { QuickEnquiry } from "../Services/user.service.js";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample.jsx";
-
+import MyCarousel from "../MyComponents/MyCarousel.jsx";
 function Index() {
   const [qEForm, setQEForm] = useState({
     name: "",
@@ -107,8 +107,9 @@ function Index() {
   return (
     <div>
       <MyNavbar />
+      <MyCarousel />
       <div>
-        <div className="overflow-auto">
+        {/* <div className="overflow-auto">
           <div className="d-flex scroll-container">
             <img
               style={{
@@ -231,7 +232,7 @@ function Index() {
               text="First slide"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Store Product and Category  */}
         <div>

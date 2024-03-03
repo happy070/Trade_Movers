@@ -13,7 +13,7 @@ const ViewCategory = () => {
   useEffect(() => {
     GetCategory()
       .then((data) => {
-        console.log(data);
+        console.log("Showing all category", data);
         setCategory(data);
       })
       .catch((error) => {

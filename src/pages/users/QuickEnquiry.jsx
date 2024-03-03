@@ -2,7 +2,7 @@ import { Card, CardBody, Container } from "react-bootstrap";
 import { GetOrder } from "../../Services/order.service";
 import { useEffect, useState } from "react";
 
-function Orders() {
+function QuickEnquiry() {
   const [orders, setOrders] = useState([]); // State to store orders
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function Orders() {
 
   return (
     <>
-      <Container style={{ overflowY: "scroll", height: "500px" }}>
+      <Container style={{ overflowY: "scroll", height: "600px" }}>
         {orders.map((order, index) => (
           <Card className="mb-2">
             <CardBody key={index}>
@@ -50,4 +50,4 @@ function Orders() {
     </>
   );
 }
-export default Orders;
+export default QuickEnquiry;

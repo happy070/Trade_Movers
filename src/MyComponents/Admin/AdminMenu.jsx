@@ -8,6 +8,7 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { FaAngellist } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
+import { PiFlagBannerBold } from "react-icons/pi";
 const AdminMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState("Add Category");
 
@@ -130,7 +131,7 @@ const AdminMenu = () => {
                   : commonStyle
               }
               as={NavLink}
-              to="/Admin/orders"
+              to="/Admin/quick-enquiry"
             >
               <strong className="icon">
                 <FaAngellist />
@@ -150,7 +151,7 @@ const AdminMenu = () => {
                 selectedCategory === "Orders" ? selectedStyle : commonStyle
               }
               as={Link}
-              to="/"
+              to="/Admin/orders"
             >
               <strong className="icon">
                 <FaAngellist />
@@ -173,7 +174,7 @@ const AdminMenu = () => {
               to="/Admin/add-carousel"
             >
               <strong className="icon">
-                <TbLogout2 size={20} />
+                <PiFlagBannerBold />
                 <span className="ms-1">Add-Carousel</span> &nbsp;
               </strong>
             </ListGroupItem>
@@ -181,6 +182,26 @@ const AdminMenu = () => {
         </Col>
       </Row>
       <Row style={{ backgroundColor: "#f2f5f7" }}>
+        <Col xs={6} md={12}>
+          <ListGroup>
+            <ListGroupItem
+              className="text-center"
+              onClick={() => handleCategoryClick("show-Carousel")}
+              style={
+                selectedCategory === "show-Carousel"
+                  ? selectedStyle
+                  : commonStyle
+              }
+              as={Link}
+              to="/Admin/show-carousel"
+            >
+              <strong className="icon">
+                <PiFlagBannerBold />
+                <span className="ms-1">Show-Carousel</span> &nbsp;
+              </strong>
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
         <Col xs={6} md={12}>
           <ListGroup>
             <ListGroupItem
