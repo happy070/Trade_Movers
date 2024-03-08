@@ -1,14 +1,4 @@
 import MyNavbar from "../MyComponents/MyNavbar";
-import watches from "../assets/Carousels/ANALOGWatch.jpg";
-import Luggage from "../assets/Carousels/BRANDEDLUGGAGE.jpg";
-import BTshirt from "../assets/Carousels/Tshirt.jpg";
-import Drink from "../assets/Carousels/drinkware.jpg";
-import EcoFriend from "../assets/Carousels/EcoFriendly.jpg";
-import Electronics from "../assets/Carousels/Electronics.jpg";
-import Vouchers from "../assets/Carousels/GiftVouchers.jpg";
-import KitchenItems from "../assets/Carousels/Kitchen.jpg";
-import OfficeEssentail from "../assets/Carousels/OfficeEssentials.jpg";
-import Onboarding from "../assets/Carousels/Onboarding.jpg";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
@@ -34,7 +24,6 @@ import OurAchivements from "../assets/Clients/achivements.jpg";
 import oc1 from "../assets/Clients/oc1.jpg";
 import oc2 from "../assets/Clients/oc2.jpg";
 import oc3 from "../assets/Clients/oc3.jpg";
-import Pencil from "../assets/icons/pencil.png";
 import { useState } from "react";
 import { QuickEnquiry } from "../Services/user.service.js";
 import { toast } from "react-toastify";
@@ -109,131 +98,6 @@ function Index() {
       <MyNavbar />
       <MyCarousel />
       <div>
-        {/* <div className="overflow-auto">
-          <div className="d-flex scroll-container">
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={watches}
-              text="First slide"
-            />
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={Luggage}
-              text="First slide"
-            />
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={BTshirt}
-              text="First slide"
-            />
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={Onboarding}
-              text="First slide"
-            />
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={Vouchers}
-              text="First slide"
-            />
-            <img
-              style={{
-                height: "400px",
-                width: "100%",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={OfficeEssentail}
-              text="First slide"
-            />
-            <img
-              style={{
-                height: "400px",
-                width: "100%",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={KitchenItems}
-              text="First slide"
-            />
-            <img
-              style={{
-                height: "400px",
-                width: "100%",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={Drink}
-              text="First slide"
-            />
-            <img
-              style={{
-                height: "400px",
-                width: "100%",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={EcoFriend}
-              text="First slide"
-            />
-            <img
-              style={{
-                height: "400px",
-                width: "100%",
-                borderRadius: "25px",
-                margin: 10,
-              }}
-              id="carouselimg"
-              className="scroll-item"
-              src={Electronics}
-              text="First slide"
-            />
-          </div>
-        </div> */}
-
         {/* Store Product and Category  */}
         <div>
           <StoreView />
@@ -252,9 +116,7 @@ function Index() {
               }}
               className="baseName"
             >
-              <b>
-                <i> Our Achievments🏆</i>
-              </b>
+              <b>Our Achievments</b>
             </h1>
           </div>
           <div>
@@ -279,9 +141,7 @@ function Index() {
               }}
               className="baseName"
             >
-              <b>
-                <i>Clients Who Trust Us❤️</i>
-              </b>
+              <b>Clients Who Trust Us</b>
             </h1>
           </div>
           <div>
@@ -312,9 +172,7 @@ function Index() {
             }}
             className="baseName"
           >
-            <b>
-              <i>Testimonials✍️</i>
-            </b>
+            <b>Testimonials</b>
           </h1>
         </div>
         <div>
@@ -333,16 +191,7 @@ function Index() {
                   className="text-center mt-2"
                 >
                   <h1 className="EnquiryTitle">
-                    <b>
-                      <i>Quick Enquiry</i>
-                    </b>
-                    <span>
-                      <img
-                        src={Pencil}
-                        alt="img not found"
-                        style={{ width: 40 }}
-                      />
-                    </span>{" "}
+                    <b>Quick Enquiry</b>
                   </h1>
                 </CardTitle>
                 <CardBody style={{ backgroundColor: "#3d63ae" }}>

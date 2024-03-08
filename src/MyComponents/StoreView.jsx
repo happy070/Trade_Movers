@@ -44,8 +44,8 @@ const StoreView = () => {
       <Container fluid className="px-5 pt-5">
         <Row>
           <Col
-            md={2}
-            lg={2}
+            md={12}
+            lg={12}
             xs={12}
             style={{
               paddingTop: "20px",
@@ -55,7 +55,7 @@ const StoreView = () => {
           >
             <SelectedCategoryView />
           </Col>
-          <Col md={10} className="productview">
+          <Col md={12} className="productview">
             {ProductView()}
           </Col>
         </Row>

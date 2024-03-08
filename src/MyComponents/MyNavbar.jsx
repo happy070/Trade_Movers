@@ -99,11 +99,11 @@ function MyNavbar() {
               <>
                 <Nav.Link
                   as={NavLink}
-                  to="/LoginPage"
+                  to="/"
                   style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
                   href="#action1"
                 >
-                  Admin-Login
+                  Home
                 </Nav.Link>
                 {/* <Nav.Link
                   as={NavLink}

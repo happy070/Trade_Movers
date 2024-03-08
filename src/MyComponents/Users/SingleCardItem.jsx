@@ -13,13 +13,13 @@ import "../../../src/index.css";
 const SingleCardItem = ({ product }) => {
   return (
     <div className="singleproduct">
-      <Card className="m-1 shadow-sm" style={{ width: "247px" }}>
+      <Card className="m-1 shadow-sm" style={{ width: "300px" }}>
         <CardBody>
           <Container className="text-center">
             <img
               style={{
-                width: "180px",
-                height: "180px",
+                width: "150px",
+                height: "150px",
                 objectFit: "contain",
                 margin: "2px",
               }}

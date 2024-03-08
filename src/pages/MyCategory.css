@@ -1,0 +1,22 @@
+.circle-row {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.circle {
+  width: 140px;
+  height: 140px; /* Increased height to accommodate title */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px; /* Adjust spacing between circles */
+  background-color: #3d65b0;
+}
+
+.circle-img {
+  width: 60px; /* Adjust size of the image */
+  height: 60px; /* Adjust size of the image */
+}

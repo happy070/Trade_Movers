@@ -46,10 +46,10 @@ const CategoryStorePage = () => {
       <MyCarousel />
       <Container fluid className="px-5 pt-5">
         <Row>
-          <Col md={2}>
+          <Col md={12}>
             <SelectedCategoryView />
           </Col>
-          <Col md={10} className="productview">
+          <Col md={12} className="productview">
             {ProductView()}
           </Col>
         </Row>

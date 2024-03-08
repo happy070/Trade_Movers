@@ -33,7 +33,7 @@ function AboutPage() {
         <MyNavbar />
         <div
           className="d-flex justify-content-center align-items-center text-center"
-          style={{ backgroundColor: "#98b8f5", height: "100px" }}
+          style={{ backgroundColor: "white", height: "100px" }}
         >
           <h2
             style={{

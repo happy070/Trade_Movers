@@ -13,3 +13,8 @@ export const QuickEnquiry = (formdata) => {
     response.data;
   });
 };
+export const MyOrders = (formdata) => {
+  return publicAxios.post("/api/myorders/add", formdata).then((response) => {
+    response.data;
+  });
+};

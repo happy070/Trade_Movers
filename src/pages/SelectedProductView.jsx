@@ -14,7 +14,6 @@ import {
   FormGroup,
   Row,
 } from "react-bootstrap";
-import pencil from "../assets/icons/pencil.png";
 import { useParams } from "react-router-dom";
 import ShowHtml from "../MyComponents/ShowHtml";
 import "../../src/index.css";
@@ -24,12 +23,16 @@ import { getProductImage } from "../Services/helper.service";
 import MyNavbar from "../MyComponents/MyNavbar";
 import Footer from "../MyComponents/Footer";
 import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample";
+import { MyOrders } from "../Services/user.service";
+import Swal from "sweetalert2";
 function SelectedProductView() {
   const [qEForm, setQEForm] = useState({
     name: "",
+    companyname: "",
+    city: "",
     mobile: "",
     email: "",
-    message: "",
+    productrequest: "",
     quantity: "",
   });
   const handleChange = (event, property) => {
@@ -43,16 +46,28 @@ function SelectedProductView() {
     if (qEForm.name == undefined || qEForm.name.trim() == "") {
       toast.error("Name is Required");
     }
+    if (qEForm.companyname == undefined || qEForm.companyname.trim() == "") {
+      toast.error("Company Name is Required");
+    }
+    if (qEForm.city == undefined || qEForm.city.trim() == "") {
+      toast.error("City Name is Required");
+    }
     if (qEForm.mobile == undefined || qEForm.mobile.trim() == "") {
       toast.error("Number is Required");
     }
-    if (qEForm.message == undefined || qEForm.message.trim() == "") {
-      toast.error("Message is Required");
-    }
     if (qEForm.email == undefined || qEForm.email.trim() == "") {
       toast.error("Email is Required");
+    }
+    if (
+      qEForm.productrequest == undefined ||
+      qEForm.productrequest.trim() == ""
+    ) {
+      toast.error("Enter Product Name is Required");
+    }
+    if (qEForm.quantity == undefined || qEForm.quantity.trim() == "") {
+      toast.error("Quantity is Required");
     } else {
-      QuickEnquiry(qEForm)
+      MyOrders(qEForm)
         .then((responseData) => {
           console.log(responseData);
           Swal.fire({
@@ -65,7 +80,8 @@ function SelectedProductView() {
           handleReset();
         })
         .catch((error) => {
-          console.log(error);
+          console.log(qEForm);
+          console.log("Error is comming from : ", error);
           Swal.fire({
             position: "center",
             icon: "error",
@@ -79,15 +95,19 @@ function SelectedProductView() {
   const handleReset = () => {
     setQEForm({
       name: "",
+      companyname: "",
+      city: "",
       mobile: "",
       email: "",
-      message: "",
+      productrequest: "",
       quantity: "",
     });
     document.getElementById("name").value = "";
+    document.getElementById("companyname").value = "";
+    document.getElementById("city").value = "";
     document.getElementById("email").value = "";
     document.getElementById("mobile").value = "";
-    document.getElementById("message").value = "";
+    document.getElementById("productrequest").value = "";
     document.getElementById("quantity").value = "";
   };
   const [product, setProduct] = useState(null);
@@ -175,16 +195,7 @@ function SelectedProductView() {
                                   className="text-center mt-2"
                                 >
                                   <h1 className="EnquiryTitle">
-                                    <b>
-                                      <i>Enquiry Form</i>
-                                    </b>
-                                    <span>
-                                      <img
-                                        src={pencil}
-                                        alt="img not found"
-                                        style={{ width: 40 }}
-                                      />
-                                    </span>{" "}
+                                    <b>Enquiry Form</b>
                                   </h1>
                                 </CardTitle>
                                 <CardBody>
@@ -208,6 +219,50 @@ function SelectedProductView() {
                                             placeholder="Enter Your Name"
                                             onChange={(event) =>
                                               handleChange(event, "name")
+                                            }
+                                          />
+                                        </FormGroup>
+                                      </Col>
+                                      <Col md={12} xs={12}>
+                                        <FormGroup>
+                                          <label
+                                            className="LabelNameSPV"
+                                            style={{
+                                              color: "#3d63ae",
+                                              fontSize: "20px",
+                                            }}
+                                          >
+                                            Company Name
+                                          </label>
+                                          <FormControl
+                                            id="companyname"
+                                            type="text"
+                                            className="mb-2"
+                                            placeholder="Enter Your Company Name"
+                                            onChange={(event) =>
+                                              handleChange(event, "companyname")
+                                            }
+                                          />
+                                        </FormGroup>
+                                      </Col>
+                                      <Col md={12} xs={12}>
+                                        <FormGroup>
+                                          <label
+                                            className="LabelNameSPV"
+                                            style={{
+                                              color: "#3d63ae",
+                                              fontSize: "20px",
+                                            }}
+                                          >
+                                            City
+                                          </label>
+                                          <FormControl
+                                            id="city"
+                                            type="text"
+                                            className="mb-2"
+                                            placeholder="Enter Your City"
+                                            onChange={(event) =>
+                                              handleChange(event, "city")
                                             }
                                           />
                                         </FormGroup>
@@ -265,15 +320,18 @@ function SelectedProductView() {
                                               fontSize: "20px",
                                             }}
                                           >
-                                            Message
+                                            Product Request
                                           </label>
                                           <FormControl
-                                            id="message"
+                                            id="productrequest"
                                             className="mb-2"
                                             type="text"
-                                            placeholder="Enter Your Message"
+                                            placeholder="Enter Your Product Name"
                                             onChange={(event) =>
-                                              handleChange(event, "message")
+                                              handleChange(
+                                                event,
+                                                "productrequest"
+                                              )
                                             }
                                           />
                                         </FormGroup>
@@ -290,9 +348,9 @@ function SelectedProductView() {
                                             Quantity
                                           </label>
                                           <FormControl
-                                            id="message"
+                                            id="quantity"
                                             className="mb-2"
-                                            type="text"
+                                            type="Number"
                                             placeholder="Required Quantity"
                                             onChange={(event) =>
                                               handleChange(event, "quantity")
@@ -355,8 +413,6 @@ function SelectedProductView() {
       </>
     );
   };
-
   return product && produdctView();
 }
-
 export default SelectedProductView;

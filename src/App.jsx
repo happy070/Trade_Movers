@@ -25,6 +25,7 @@ import AddCarousel from "./MyComponents/Admin/AddCarousel";
 import ShowCarousel from "./MyComponents/Admin/ShowCarousel";
 import QuickEnquiry from "./pages/users/QuickEnquiry";
 import Orders from "./MyComponents/Admin/Orders";
+import MyCategory from "./pages/MyCategory";
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
             <Route path="/LoginPage" element={<LoginPage />}></Route>
             <Route path="/SignUpPage" element={<SignUpPage />}></Route>
             <Route path="/ContactUsPage" element={<ContactUsPage />}></Route>
+            <Route path="/MyCategory" element={<MyCategory />}></Route>
             <Route
               path="/products/:productId"
               element={<SelectedProductView />}

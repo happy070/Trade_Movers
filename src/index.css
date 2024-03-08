@@ -35,6 +35,12 @@
 }
 
 @media (max-width: 767px) {
+  .cat{
+    font-size: 12px !important;
+  }
+  .catname{
+    font-size: 25px !important;
+  }
   .singleproduct{
     display: flex !important;
     justify-content: center !important;

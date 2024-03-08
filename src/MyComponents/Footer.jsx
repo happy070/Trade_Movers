@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
 import whatsapp from "../assets/icons/whatsapp.png";
 import instagram from "../assets/icons/instagram.png";
 import facebook from "../assets/icons/facebook.png";
@@ -7,6 +7,7 @@ import Linkdin from "../assets/icons/Linkdin.png";
 import "../MyComponents/Footer.jsx";
 import Logo from "../assets/TradeMoverLogoWhite.png";
 import "../MyComponents/Footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -60,7 +61,13 @@ const Footer = () => {
           <Row className="text-center">
             <Col xs={12} md={9}>
               <div>
-                <div style={{ marginRight: 10 }}>
+                <div
+                  style={{
+                    marginRight: 10,
+                    display: "flex",
+                    justifyContent: "start",
+                  }}
+                >
                   <img src={Logo} style={{ height: "75px" }} alt="" />
                 </div>
                 <div>
@@ -83,6 +90,17 @@ const Footer = () => {
                     had been serving customers across various business sectors &
                     cities.
                   </p>
+                  <Link
+                    to="/LoginPage"
+                    style={{
+                      color: "white",
+                      display: "flex",
+                      justifyContent: "start",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    Admin Login
+                  </Link>
                 </div>
               </div>
             </Col>
