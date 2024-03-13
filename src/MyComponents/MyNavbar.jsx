@@ -135,6 +135,14 @@ function MyNavbar() {
                   </NavDropdown.Item>
                 ))}
             </NavDropdown>
+            <Nav.Link
+              as={NavLink}
+              to="/gallery"
+              style={{ color: "white", fontFamily: "Poppins, sans-serif" }}
+              href="#action2"
+            >
+              Gallery
+            </Nav.Link>
           </Nav>
           {/* <Form className="d-flex">
             <Form.Control

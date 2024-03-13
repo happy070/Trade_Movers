@@ -10,7 +10,7 @@ const StoreView = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    loadProducts(0, 10, "addedDate", "desc");
+    loadProducts(0, 1000, "addedDate", "desc");
   }, []);
 
   const loadProducts = (pageNumber, pageSize, sortBy, sortDir) => {

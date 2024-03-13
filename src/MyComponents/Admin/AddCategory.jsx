@@ -116,7 +116,7 @@ const AddCategory = () => {
                   onChange={(event) => handleChange(event, "description")}
                   value={category.description}
                 />
-                {/* <FormGroup className="mt-3">
+                <FormGroup className="mt-3">
                   <Form.Label>Category Cover Image Url</Form.Label>
                   <Form.Control
                     type="text"
@@ -124,7 +124,7 @@ const AddCategory = () => {
                     onChange={(event) => handleChange(event, "coverImage")}
                     value={category.coverImage}
                   />
-                </FormGroup> */}
+                </FormGroup>
               </FormGroup>
               <div className="text-center">
                 <Button type="submit" variant="primary" style={{ margin: 10 }}>

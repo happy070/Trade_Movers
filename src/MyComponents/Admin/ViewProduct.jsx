@@ -29,18 +29,18 @@ const ViewProduct = () => {
     setShow(true);
   };
   useEffect(() => {
-    getProducts(1, 5, "addedDate", "desc");
+    getProducts(1, 1000, "addedDate", "desc");
   }, []);
 
   const getProducts = (
     pageNumber = 1,
-    pageSize = 5,
+    pageSize = 1000,
     sortBy = "addedDate",
     sortDir = "asc"
   ) => {
     getAllProducts(pageNumber, pageSize, sortBy, sortDir)
       .then((data) => {
-        console.log(data);
+        console.log("This is all product list", data);
         setProduct({
           ...data,
         });

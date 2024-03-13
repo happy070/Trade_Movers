@@ -23,9 +23,14 @@ const SelectedCategoryView = () => {
       >
         <CardBody>
           <img
-            src={circleImg}
+            src={cat.coverImage}
             alt="Circle"
-            style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+            style={{
+              width: "100px",
+              height: "100px",
+              borderRadius: "50%",
+              backgroundColor: "white",
+            }}
           />
           <h5
             style={{
