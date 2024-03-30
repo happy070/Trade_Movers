@@ -27,6 +27,8 @@ import QuickEnquiry from "./pages/users/QuickEnquiry";
 import Orders from "./MyComponents/Admin/Orders";
 import MyCategory from "./pages/MyCategory";
 import Gallery from "./MyComponents/Gallery";
+import ShowTrending from "./MyComponents/Admin/ShowTrending";
+import AddTrending from "./MyComponents/Admin/AddTrending";
 function App() {
   return (
     <>
@@ -65,6 +67,8 @@ function App() {
               <Route path="quick-enquiry" element={<QuickEnquiry />} />
               <Route path="add-carousel" element={<AddCarousel />} />
               <Route path="show-carousel" element={<ShowCarousel />} />
+              <Route path="show-trending" element={<ShowTrending />} />
+              <Route path="add-trending" element={<AddTrending />} />
               <Route path="orders" element={<Orders />} />
             </Route>
           </Routes>

@@ -22,7 +22,6 @@ import { getProduct } from "../Services/product.service";
 import { getProductImage } from "../Services/helper.service";
 import MyNavbar from "../MyComponents/MyNavbar";
 import Footer from "../MyComponents/Footer";
-import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample";
 import { MyOrders } from "../Services/user.service";
 import Swal from "sweetalert2";
 function SelectedProductView() {
@@ -62,11 +61,12 @@ function SelectedProductView() {
       qEForm.productrequest == undefined ||
       qEForm.productrequest.trim() == ""
     ) {
-      toast.error("Enter Product Name is Required");
+      toast.error("Product Name is Required");
     }
     if (qEForm.quantity == undefined || qEForm.quantity.trim() == "") {
       toast.error("Quantity is Required");
     } else {
+      console.log("This is form data from success", qEForm);
       MyOrders(qEForm)
         .then((responseData) => {
           console.log(responseData);
@@ -80,12 +80,12 @@ function SelectedProductView() {
           handleReset();
         })
         .catch((error) => {
-          console.log(qEForm);
+          console.log("This is form data from error", qEForm);
           console.log("Error is comming from : ", error);
           Swal.fire({
             position: "center",
             icon: "error",
-            title: "Something Went Wrong!!!Please Try Again Later.",
+            title: "Error Filling details. \n Please Enter Correct Values.",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -125,7 +125,6 @@ function SelectedProductView() {
       })
       .catch((error) => console.log(error));
   };
-
   const produdctView = () => {
     return (
       <>
@@ -153,13 +152,6 @@ function SelectedProductView() {
                       </Col>
                       <Col>
                         <h3>{product.title}</h3>
-                        <p className="text-muted">
-                          Sort description{" "}
-                          <span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Architecto, velit?
-                          </span>{" "}
-                        </p>
                         <Badge pill bg="primary">
                           {product.category?.title}
                         </Badge>
@@ -276,7 +268,7 @@ function SelectedProductView() {
                                               fontSize: "20px",
                                             }}
                                           >
-                                            Contact Number
+                                            Contact Number (Max 10 digit)
                                           </label>
                                           <FormControl
                                             id="mobile"
@@ -320,7 +312,7 @@ function SelectedProductView() {
                                               fontSize: "20px",
                                             }}
                                           >
-                                            Product Request
+                                            Product Name
                                           </label>
                                           <FormControl
                                             id="productrequest"
@@ -408,7 +400,6 @@ function SelectedProductView() {
             </Col>
           </Row>
         </Container>
-        <IndividualIntervalsExample />
         <Footer />
       </>
     );

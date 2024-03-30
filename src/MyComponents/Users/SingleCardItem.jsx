@@ -10,7 +10,14 @@ import {
 import { getProductImage } from "../../Services/helper.service";
 import { Link } from "react-router-dom";
 import "../../../src/index.css";
+import ShowHtml from "../ShowHtml";
 const SingleCardItem = ({ product }) => {
+  const truncateDescription = (description) => {
+    const words = description.split(" ");
+    const truncatedDescription = words.slice(0, 10).join(" ");
+    return truncatedDescription;
+  };
+
   return (
     <div className="singleproduct">
       <Card className="m-1 shadow-sm" style={{ width: "300px" }}>
@@ -31,9 +38,10 @@ const SingleCardItem = ({ product }) => {
             <b>{product.title}</b>
           </h5>
           <h6>
-            <p style={{ fontFamily: "Poppins, sans-serif" }}>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Provident, fugit.
+            <p className="text-muted">
+              <div className="mt-1">
+                <ShowHtml htmlText={truncateDescription(product.description)} />
+              </div>
             </p>
           </h6>
           <h6>

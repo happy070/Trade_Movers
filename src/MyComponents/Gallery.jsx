@@ -97,22 +97,21 @@ const Gallery = () => {
       <MyNavbar />
       <div
         className="d-flex justify-content-center align-items-center text-center"
-        style={{ backgroundColor: "white", height: "100px" }}
+        style={{ backgroundColor: "white", height: "80px" }}
       >
-        <h2
+        <h1
           style={{
-            fontFamily: "poppins, sans-serif",
-            marginTop: "25px",
-            backgroundColor: "#05215e",
-            color: "white",
-            boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+            fontFamily: "Poppins, sans-serif",
+            marginTop: "10px",
+            fontSize: "50px",
+            color: "black",
           }}
           className="baseName"
         >
-          Our Work
-        </h2>
+          <b>Our Work</b>
+        </h1>
       </div>
-      <Container
+      {/* <Container
         className="text-center"
         style={{ justifyContent: "center", alignItems: "center" }}
       >
@@ -146,6 +145,9 @@ const Gallery = () => {
               </Row>
             )
         )}
+      </Container> */}
+      <Container className="text-center mt-5" style={{ height: "80vh" }}>
+        <h1>Coming soon</h1>
       </Container>
       <Footer />
     </>

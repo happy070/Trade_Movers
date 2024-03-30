@@ -18,3 +18,12 @@ export const MyOrders = (formdata) => {
     response.data;
   });
 };
+
+export const FetchAllOrders = () => {
+  return publicAxios
+    .get("/api/myorders/show")
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log(error);
+    });
+};

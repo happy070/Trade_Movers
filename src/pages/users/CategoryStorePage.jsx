@@ -5,14 +5,13 @@ import "../../../src/index.css";
 import SingleCardItem from "../../MyComponents/Users/SingleCardItem";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../MyComponents/MyNavbar.jsx";
-import SelectedCategoryView from "./SelectedCategoryView.jsx";
 import MyCarousel from "../../MyComponents/MyCarousel.jsx";
 import Footer from "../../MyComponents/Footer.jsx";
 const CategoryStorePage = () => {
   const { categoryId, categoryTitle } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
-    loadProductsOfCategory(0, 10, "addedDate", "desc");
+    loadProductsOfCategory(0, 10000, "addedDate", "desc");
   }, [categoryId]);
 
   const loadProductsOfCategory = (pageNumber, pageSize, sortBy, sortDir) => {
@@ -43,12 +42,8 @@ const CategoryStorePage = () => {
   return (
     <>
       <MyNavbar />
-      <MyCarousel />
       <Container fluid className="px-5 pt-5">
         <Row>
-          <Col md={12}>
-            <SelectedCategoryView />
-          </Col>
           <Col md={12} className="productview">
             {ProductView()}
           </Col>

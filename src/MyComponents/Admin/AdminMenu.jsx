@@ -9,6 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaAngellist } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 import { PiFlagBannerBold } from "react-icons/pi";
+import { FaArrowTrendUp } from "react-icons/fa6";
 const AdminMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState("Add Category");
 
@@ -198,6 +199,48 @@ const AdminMenu = () => {
               <strong className="icon">
                 <PiFlagBannerBold />
                 <span className="ms-1">Show-Carousel</span> &nbsp;
+              </strong>
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
+        <Col xs={6} md={12}>
+          <ListGroup>
+            <ListGroupItem
+              className="text-center"
+              onClick={() => handleCategoryClick("Add-Trending")}
+              style={
+                selectedCategory === "Add-Trending"
+                  ? selectedStyle
+                  : commonStyle
+              }
+              as={Link}
+              to="/Admin/add-trending"
+            >
+              <strong className="icon">
+                <FaArrowTrendUp />
+                <span className="ms-1">Add-Trending</span> &nbsp;
+              </strong>
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={6} md={12}>
+          <ListGroup>
+            <ListGroupItem
+              className="text-center"
+              onClick={() => handleCategoryClick("show-Trending")}
+              style={
+                selectedCategory === "show-Trending"
+                  ? selectedStyle
+                  : commonStyle
+              }
+              as={Link}
+              to="/Admin/show-trending"
+            >
+              <strong className="icon">
+                <FaArrowTrendUp />
+                <span className="ms-1">Show-Trending</span> &nbsp;
               </strong>
             </ListGroupItem>
           </ListGroup>

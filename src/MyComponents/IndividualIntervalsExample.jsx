@@ -98,13 +98,10 @@ function IndividualIntervalsExample() {
                 We are delighted to provide a testimonial for Trade Movers. Our
                 experience with Trade Movers has been exceptional. Our
                 experience with Trade Movers was exceptional. The quality of our
-                Corporate Welcome kit surpassed expectations. They offered a
-                wide range of options to suit our needs. The team was
+                Corporate Welcome kit surpassed expectations.The team was
                 professional, responsive, and attentive throughout. Their
                 customer service was commendable. We highly recommend Trade
-                Movers for quality corporate items. Their excellence, diverse
-                options, and outstanding service make them a top choice. We look
-                forward to future collaborations.
+                Movers for quality corporate items.
                 <span>
                   <img src={LQ} style={{ width: "40px" }} alt="" />
                 </span>
@@ -294,8 +291,7 @@ function IndividualIntervalsExample() {
                 exceptional service and unique gift selection. Their attention
                 to detail and prompt delivery made the entire experience
                 seamless. I highly recommend them to anyone looking to find the
-                perfect gift for any occasion. They truly go above and beyond to
-                ensure customer satisfaction. Mr. Poonam J. Poladia - Asst.
+                perfect gift for any occasion. Mr. Poonam J. Poladia - Asst.
                 Director Marcom -Endress+Hauser India Pvt. Ltd.
                 <span>
                   <img src={LQ} style={{ width: "40px" }} alt="" />

@@ -32,7 +32,7 @@ const AddProduct = () => {
     price: 0,
     discountedPrice: 0,
     quantity: 1,
-    live: false,
+    live: true,
     stock: true,
     image: undefined,
     imagePreview: undefined,
@@ -231,13 +231,13 @@ const AddProduct = () => {
                         placeholder="Enter Discounted Price"
                         onChange={(event) => {
                           handleChange(event, "discountedPrice");
-                          console.log(event.target.value > product.price);
-                          if (event.target.value > product.price) {
-                            console.log(product.price);
-                            console.log(event.target.value);
-                            toast.error("Enter Correct value");
-                            return;
-                          }
+                          // console.log(event.target.value > product.price);
+                          // if (event.target.value > product.price) {
+                          //   console.log(product.price);
+                          //   console.log(event.target.value);
+                          //   toast.error("Enter Correct value");
+                          //   return;
+                          // }
                         }}
                       />
                     </Col>
@@ -264,7 +264,7 @@ const AddProduct = () => {
                     )}
                   </Form.Select>
                 </Form.Group>
-                <FormGroup className="mt-2">
+                {/* <FormGroup className="mt-2">
                   <FormLabel>
                     <i>Product Quantity</i>
                   </FormLabel>
@@ -273,8 +273,8 @@ const AddProduct = () => {
                     placeholder="Enter Your Quantity"
                     onChange={(event) => handleChange(event, "quantity")}
                   />
-                </FormGroup>
-                <Row className="mt-2">
+                </FormGroup> */}
+                {/* <Row className="mt-2">
                   <Col>
                     <FormCheck
                       type="switch"
@@ -291,7 +291,7 @@ const AddProduct = () => {
                       onChange={(event) => handleChange(event, "stock")}
                     />
                   </Col>
-                </Row>
+                </Row> */}
                 <FormGroup>
                   <Container className="text-center">
                     <p className="text-muted mt-3">Image Preview</p>

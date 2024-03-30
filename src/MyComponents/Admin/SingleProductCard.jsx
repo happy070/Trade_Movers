@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
-import { FaKeyboard } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { deleteProduct } from "../../Services/product.service";
 import { toast } from "react-toastify";
@@ -60,7 +59,6 @@ const SingleProductCard = ({
       <td className="px-3 small">{index + 1}</td>
       <td className="px-3 small">{product.category.title}</td>
       <td className="px-3 small">{product.title}</td>
-      <td className="px-3 small">{product.quantity}</td>
       <td className="px-3 small">{product.price}</td>
       <td className="px-3 small">{product.discountedPrice}</td>
       <td className="px-3 small">{product.live ? "Live" : "Not Live"}</td>
@@ -83,10 +81,6 @@ const SingleProductCard = ({
           onClick={(event) => openProductViewModal(product)}
         >
           <FaEye />
-        </Button>
-
-        <Button size="sm" variant="success">
-          <FaKeyboard />
         </Button>
       </td>
     </tr>

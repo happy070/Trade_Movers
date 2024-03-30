@@ -1,4 +1,3 @@
-import { IoMdReturnRight } from "react-icons/io";
 import { publicAxios } from "./axios.service";
 
 export const uploadImages = (imagesData) => {
