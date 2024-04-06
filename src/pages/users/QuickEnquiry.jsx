@@ -13,17 +13,17 @@ function QuickEnquiry() {
   const getAllOrders = () => {
     GetOrder()
       .then((response) => {
-        console.log("Response from order APi ", response);
+        console.log("Response from QuickEnquiry APi ", response);
         setOrders(response);
       })
       .catch((error) => {
-        console.log("Error fetching orders:", error);
+        console.log("Error fetching QuickEnquiry:", error);
       });
   };
 
   return (
     <>
-      <Container style={{ overflowY: "scroll", height: "600px" }}>
+      <Container style={{ overflowY: "scroll", height: "710px" }}>
         {orders.map((order, index) => (
           <Card className="mb-2">
             <CardBody key={index}>

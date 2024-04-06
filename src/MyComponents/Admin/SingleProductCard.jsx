@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
-import { FaKeyboard } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { deleteProduct } from "../../Services/product.service";
 import { toast } from "react-toastify";
@@ -15,16 +14,16 @@ const SingleProductCard = ({
   const formatDate = (time) => {
     return new Date(time).toLocaleDateString();
   };
-  const getproduct = () => {
-    if (product.live && product.stock) {
-      return "table-success";
-    } else if (!product.live) {
-      return "table-danger";
-    } else if (!product.stock) {
-      return "table-warning";
-    } else {
-    }
-  };
+  // const getproduct = () => {
+  //   if (product.live && product.stock) {
+  //     return "table-success";
+  //   } else if (!product.live) {
+  //     return "table-danger";
+  //   } else if (!product.stock) {
+  //     return "table-warning";
+  //   } else {
+  //   }
+  // };
 
   const deleteProductItem = (productId) => {
     Swal.fire({
@@ -56,14 +55,13 @@ const SingleProductCard = ({
   };
 
   return (
-    <tr className={getproduct()}>
+    <tr>
       <td className="px-3 small">{index + 1}</td>
       <td className="px-3 small">{product.category.title}</td>
       <td className="px-3 small">{product.title}</td>
-      <td className="px-3 small">{product.quantity}</td>
-      <td className="px-3 small">{product.price}</td>
-      <td className="px-3 small">{product.discountedPrice}</td>
-      <td className="px-3 small">{product.live ? "Live" : "Not Live"}</td>
+      {/* <td className="px-3 small">{product.price}</td>
+      <td className="px-3 small">{product.discountedPrice}</td> */}
+      {/* <td className="px-3 small">{product.live ? "Live" : "Not Live"}</td> */}
       <td className="px-3 small">{product.stock ? "yes" : "No"}</td>
       <td className="px-3 small">{formatDate(product.addedDate)}</td>
       <td className="px-3 small d-flex">
@@ -83,10 +81,6 @@ const SingleProductCard = ({
           onClick={(event) => openProductViewModal(product)}
         >
           <FaEye />
-        </Button>
-
-        <Button size="sm" variant="success">
-          <FaKeyboard />
         </Button>
       </td>
     </tr>

@@ -36,7 +36,9 @@
 
 @media (max-width: 767px) {
   .cat{
-    font-size: 12px !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    margin-top: 12px !important;
   }
   .catname{
     font-size: 25px !important;
@@ -65,7 +67,7 @@
     margin-top: 8px !important;
   }
   .baseName{
-    font-size: 25px !important;
+    font-size: 30px !important;
   }
   .icon{
     font-size: 15px !important;

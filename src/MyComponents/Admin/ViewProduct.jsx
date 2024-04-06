@@ -4,15 +4,11 @@ import {
   CardBody,
   Col,
   Container,
-  FormControl,
-  FormGroup,
-  FormLabel,
   Pagination,
   Row,
   Table,
   Modal,
   Button,
-  InputGroup,
 } from "react-bootstrap";
 import { getAllProducts } from "../../Services/product.service";
 import SingleProductCard from "./SingleProductCard";
@@ -29,12 +25,12 @@ const ViewProduct = () => {
     setShow(true);
   };
   useEffect(() => {
-    getProducts(1, 1000, "addedDate", "desc");
+    getProducts(1, 10000, "addedDate", "desc");
   }, []);
 
   const getProducts = (
     pageNumber = 1,
-    pageSize = 1000,
+    pageSize = 10000,
     sortBy = "addedDate",
     sortDir = "asc"
   ) => {
@@ -89,11 +85,7 @@ const ViewProduct = () => {
                     <td>Product Id</td>
                     <td className="fw-bold">{currentProduct.productId}</td>
                   </tr>
-                  <tr>
-                    <td>Quantity</td>
-                    <td className="fw-bold">{currentProduct.quantity}</td>
-                  </tr>
-                  <tr>
+                  {/* <tr>
                     <td>Price</td>
                     <td className="fw-bold"> ₹{currentProduct.price} </td>
                   </tr>
@@ -103,14 +95,14 @@ const ViewProduct = () => {
                       {" "}
                       ₹{currentProduct.discountedPrice}
                     </td>
-                  </tr>
-                  <tr className={currentProduct.live ? "" : "table-danger"}>
+                  </tr> */}
+                  {/* <tr className={currentProduct.live ? "" : "table-danger"}>
                     <td>Live</td>
                     <td className="fw-bold">
                       {currentProduct.live ? "True" : "False"}
                     </td>
-                  </tr>
-                  <tr className={currentProduct.stock ? "" : "table-danger"}>
+                  </tr> */}
+                  <tr>
                     <td>Stock</td>
                     <td className="fw-bold">
                       {currentProduct.stock ? "In Stock" : "Not in Stock"}
@@ -150,28 +142,8 @@ const ViewProduct = () => {
     return (
       <Card>
         <CardBody>
-          <h4 className=" text-center mt-3">View Product</h4>
-          <FormGroup>
-            <FormLabel>Search Product</FormLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                className="mb-3"
-                placeholder="search here"
-              />
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "#05215e",
-                  color: "white",
-                  width: 75,
-                  height: 35,
-                }}
-              >
-                Submit
-              </Button>
-            </InputGroup>
-          </FormGroup>
+          <h4 className=" text-center mt-3">All Product</h4>
+
           <Table
             className="text-center"
             striped
@@ -185,10 +157,9 @@ const ViewProduct = () => {
                 <th>#SN</th>
                 <th>Category</th>
                 <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Discounted Price</th>
-                <th>Live</th>
+                {/* <th>Price</th>
+                <th>Discounted Price</th> */}
+                {/* <th>Live</th> */}
                 <th>Stock</th>
                 <th>Date</th>
                 <th>Actions</th>
@@ -224,7 +195,7 @@ const ViewProduct = () => {
                         }}
                         key={item}
                       >
-                        {item + 1}
+                        Load Products
                       </Pagination.Item>
                     );
                   })

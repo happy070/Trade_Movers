@@ -60,6 +60,9 @@ const AddCarousel = () => {
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Container className="text-center">
+            <div>
+              <h2>Add Carousels</h2>
+            </div>
             <p className="text-muted mt-3">Image Preview</p>
             <div style={{ marginBottom: "5px" }}>
               {images.map((image, index) => (

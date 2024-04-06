@@ -2,7 +2,6 @@ import MyNavbar from "../MyComponents/MyNavbar";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
-import { IoIosRocket } from "react-icons/io";
 import {
   Button,
   Card,
@@ -24,12 +23,14 @@ import OurAchivements from "../assets/Clients/achivements.jpg";
 import oc1 from "../assets/Clients/oc1.jpg";
 import oc2 from "../assets/Clients/oc2.jpg";
 import oc3 from "../assets/Clients/oc3.jpg";
+import oc4 from "../assets/Clients/oc4.jpg";
 import { useState } from "react";
 import { QuickEnquiry } from "../Services/user.service.js";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import IndividualIntervalsExample from "../MyComponents/IndividualIntervalsExample.jsx";
 import MyCarousel from "../MyComponents/MyCarousel.jsx";
+import MyTrending from "../MyComponents/MyTrending.jsx";
 function Index() {
   const [qEForm, setQEForm] = useState({
     name: "",
@@ -99,8 +100,27 @@ function Index() {
       <MyCarousel />
       <div>
         {/* Store Product and Category  */}
-        <div>
+        <div style={{ backgroundColor: "white" }}>
           <StoreView />
+        </div>
+        <div
+          className="d-flex justify-content-center align-items-center text-center"
+          style={{ backgroundColor: "white", height: "80px" }}
+        >
+          <h1
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              marginTop: "10px",
+              fontSize: "50px",
+              color: "black",
+            }}
+            className="baseName"
+          >
+            <b>Featured Products</b>
+          </h1>
+        </div>
+        <div>
+          <MyTrending />
         </div>
         <section>
           <div
@@ -145,7 +165,12 @@ function Index() {
             </h1>
           </div>
           <div>
-            <Carousel variant="dark">
+            <Carousel
+              variant="dark"
+              controls={false}
+              indicators={false}
+              interval={1000}
+            >
               <Carousel.Item>
                 <img src={oc1} style={{ width: "100%" }} alt="" />
               </Carousel.Item>
@@ -154,6 +179,9 @@ function Index() {
               </Carousel.Item>
               <Carousel.Item>
                 <img src={oc3} style={{ width: "100%" }} alt="" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img src={oc4} style={{ width: "100%" }} alt="" />
               </Carousel.Item>
             </Carousel>
           </div>
@@ -178,21 +206,27 @@ function Index() {
         <div>
           <IndividualIntervalsExample />
         </div>
-        <Container fluid className="mt-2">
+        <div fluid id="quickEnquiry" className="mt-2">
           <Row className="justify-content-center">
             <Col md={12} xs={12}>
               <Card>
-                <CardTitle
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    color: "black",
-                    fontSize: "50px",
-                  }}
-                  className="text-center mt-2"
-                >
-                  <h1 className="EnquiryTitle">
-                    <b>Quick Enquiry</b>
-                  </h1>
+                <CardTitle>
+                  <div
+                    className="d-flex justify-content-center align-items-center text-center"
+                    style={{ backgroundColor: "white", height: "80px" }}
+                  >
+                    <h1
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        marginTop: "10px",
+                        fontSize: "50px",
+                        color: "black",
+                      }}
+                      className="baseName"
+                    >
+                      <b>Quick Enquiry</b>
+                    </h1>
+                  </div>
                 </CardTitle>
                 <CardBody style={{ backgroundColor: "#3d63ae" }}>
                   <Form onSubmit={HandleSubmit}>
@@ -298,7 +332,7 @@ function Index() {
               </Card>
             </Col>
           </Row>
-        </Container>
+        </div>
         <Container fluid>
           <Row>
             <Col md={7} sm={12}>
@@ -320,7 +354,7 @@ function Index() {
                   className="text-center"
                   style={{ fontFamily: "poppins,sans-serif", marginTop: 50 }}
                 >
-                  Get In Touch <IoIosRocket />
+                  Get In Touch
                 </h2>
               </div>
               <div style={{ display: "flex", marginTop: 20 }}>
@@ -333,7 +367,7 @@ function Index() {
                     marginLeft: 10,
                   }}
                 >
-                  Trade Movers A301 silver palace akal society JB nagar Andheir
+                  Trade Movers, A301 silver palace akal society JB nagar Andheir
                   east mumbai, Pincode - 400059
                 </p>
               </div>
@@ -342,7 +376,7 @@ function Index() {
                   <IoMailOpenOutline style={{ width: 40, height: 40 }} />
                 </div>
                 <a
-                  href="mailto:trademover90@gmail.com"
+                  href="mailto:trade.movers@gmail.com"
                   style={{ textDecoration: "none" }}
                 >
                   <p
@@ -353,7 +387,27 @@ function Index() {
                       color: "black",
                     }}
                   >
-                    trademover90@gmail.com
+                    trade.movers@gmail.com
+                  </p>
+                </a>
+              </div>
+              <div style={{ display: "flex", marginTop: 20 }}>
+                <div>
+                  <IoMailOpenOutline style={{ width: 40, height: 40 }} />
+                </div>
+                <a
+                  href="inquiry@giftingitems.co.in"
+                  style={{ textDecoration: "none" }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "poppins,sans-serif",
+                      marginTop: 10,
+                      marginLeft: 10,
+                      color: "black",
+                    }}
+                  >
+                    inquiry@giftingitems.co.in
                   </p>
                 </a>
               </div>

@@ -110,7 +110,7 @@ const Footer = () => {
                   <h3
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "20px",
+                      fontSize: "30px",
                       marginTop: "-28px",
                       color: "white",
                     }}
@@ -124,11 +124,11 @@ const Footer = () => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <img
-                      style={{ height: 30, marginTop: 12 }}
+                      style={{ height: 30, width: 30, marginTop: 10 }}
                       src={whatsapp}
                       alt="WhatsApp"
                     />
-                    <span style={{ marginLeft: 5, color: "white" }}>
+                    <span style={{ marginLeft: 10, color: "white" }}>
                       Whatsapp
                     </span>
                   </a>
@@ -138,11 +138,11 @@ const Footer = () => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <img
-                      style={{ height: 30, marginTop: 10 }}
+                      style={{ height: 30, width: 30, marginTop: 10 }}
                       src={instagram}
                       alt="Instagram"
                     />
-                    <span style={{ marginLeft: 5, color: "white" }}>
+                    <span style={{ marginLeft: 10, color: "white" }}>
                       Instagram
                     </span>
                   </a>
@@ -152,11 +152,11 @@ const Footer = () => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <img
-                      style={{ height: 30, marginTop: 10 }}
+                      style={{ height: 30, width: 30, marginTop: 10 }}
                       src={facebook}
                       alt="Facebook"
                     />
-                    <span style={{ marginLeft: 5, color: "white" }}>
+                    <span style={{ marginLeft: 10, color: "white" }}>
                       Facebook
                     </span>
                   </a>
@@ -170,11 +170,11 @@ const Footer = () => {
                     }}
                   >
                     <img
-                      style={{ height: 30, marginTop: 10 }}
+                      style={{ height: 30, width: 30, marginTop: 10 }}
                       src={Linkdin}
                       alt="Linkdin"
                     />
-                    <span style={{ marginLeft: 4, color: "white" }}>
+                    <span style={{ marginLeft: 10, color: "white" }}>
                       Linkdin
                     </span>
                   </a>

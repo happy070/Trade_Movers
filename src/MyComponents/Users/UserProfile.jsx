@@ -67,14 +67,6 @@ const UserProfile = ({ user = null }) => {
                       </tr>
                     </tbody>
                   </Table>
-                  <Container className="text-center mt-xs-5">
-                    <Button size="lg" className="me-2" variant="success">
-                      Update
-                    </Button>
-                    <Button size="lg" variant="warning">
-                      Clear
-                    </Button>
-                  </Container>
                 </CardBody>
               </Card>
             </Col>

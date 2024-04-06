@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/TradeMoverLogoWhite.png";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/user.context";
@@ -130,7 +130,12 @@ function MyNavbar() {
             >
               {categories &&
                 categories.content.map((cat, index) => (
-                  <NavDropdown.Item href="#action3" key={index}>
+                  <NavDropdown.Item
+                    href="#action3"
+                    as={Link}
+                    to={`/store/${cat.categoryId}/${cat.title}`}
+                    key={cat.categoryId}
+                  >
                     {cat.title}
                   </NavDropdown.Item>
                 ))}

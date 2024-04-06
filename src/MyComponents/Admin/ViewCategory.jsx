@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CategoryView from "./CategoryView";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-import { DeleteCategory, GetCategory } from "../../Services/category.service";
+import { DeleteCategory, getCategories } from "../../Services/category.service";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
@@ -11,7 +11,7 @@ const ViewCategory = () => {
   });
 
   useEffect(() => {
-    GetCategory()
+    getCategories()
       .then((data) => {
         console.log("Showing all category", data);
         setCategory(data);
@@ -57,7 +57,7 @@ const ViewCategory = () => {
 
   const containerStyle = {
     overflowY: "scroll",
-    maxHeight: "420px",
+    maxHeight: "650px",
   };
 
   return (

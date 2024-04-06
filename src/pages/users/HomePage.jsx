@@ -6,21 +6,17 @@ import { Button } from "react-bootstrap";
 import UserContext from "../../Context/user.context";
 import axios from "axios";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+
 function HomePage() {
   const userContxt = useContext(UserContext);
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
   function result() {
-    // toast.success("Fetched Users From fake API's", { theme: "dark" });
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then(function (response) {
-        console.table(response);
-        toast.success("fetched successfully");
-      })
-      .catch(function (error) {
-        console.log(error);
-        toast.error("failed something went wrong");
-      });
+    // Navigate to another page upon button click
+    navigate("/Admin/home"); // Replace "/other-page" with the path to your desired page
   }
+
   return (
     <>
       <MyNavbar />
@@ -45,4 +41,5 @@ function HomePage() {
     </>
   );
 }
+
 export default HomePage;

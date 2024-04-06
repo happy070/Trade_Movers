@@ -33,20 +33,19 @@ function AboutPage() {
         <MyNavbar />
         <div
           className="d-flex justify-content-center align-items-center text-center"
-          style={{ backgroundColor: "white", height: "100px" }}
+          style={{ backgroundColor: "white", height: "80px" }}
         >
-          <h2
+          <h1
             style={{
-              fontFamily: "poppins, sans-serif",
-              marginTop: "25px",
-              backgroundColor: "#05215e",
-              color: "white",
-              boxShadow: "0 5px 8px rgba(0, 0, 0, 0.9)",
+              fontFamily: "Poppins, sans-serif",
+              marginTop: "10px",
+              fontSize: "50px",
+              color: "black",
             }}
             className="baseName"
           >
-            About Us
-          </h2>
+            <b>About Us</b>
+          </h1>
         </div>
         <div>
           <Container>
