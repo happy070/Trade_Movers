@@ -26,10 +26,12 @@ const ViewProduct = () => {
   };
   useEffect(() => {
     getProducts(1, 10000, "addedDate", "desc");
+    getProducts(1, 10000, "addedDate", "desc");
   }, []);
 
   const getProducts = (
     pageNumber = 1,
+    pageSize = 10000,
     pageSize = 10000,
     sortBy = "addedDate",
     sortDir = "asc"
@@ -144,6 +146,8 @@ const ViewProduct = () => {
         <CardBody>
           <h4 className=" text-center mt-3">All Product</h4>
 
+          <h4 className=" text-center mt-3">All Product</h4>
+
           <Table
             className="text-center"
             striped
@@ -195,7 +199,7 @@ const ViewProduct = () => {
                         }}
                         key={item}
                       >
-                        Load Products
+                        Load Products Load Products
                       </Pagination.Item>
                     );
                   })

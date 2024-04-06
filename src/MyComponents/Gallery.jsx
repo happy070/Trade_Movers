@@ -29,9 +29,15 @@ const Gallery = () => {
       <div
         className="d-flex justify-content-center align-items-center text-center"
         style={{ backgroundColor: "white", height: "80px" }}
+        style={{ backgroundColor: "white", height: "80px" }}
       >
         <h1
+        <h1
           style={{
+            fontFamily: "Poppins, sans-serif",
+            marginTop: "10px",
+            fontSize: "50px",
+            color: "black",
             fontFamily: "Poppins, sans-serif",
             marginTop: "10px",
             fontSize: "50px",
@@ -39,6 +45,8 @@ const Gallery = () => {
           }}
           className="baseName"
         >
+          <b>Our Work</b>
+        </h1>
           <b>Our Work</b>
         </h1>
       </div>
